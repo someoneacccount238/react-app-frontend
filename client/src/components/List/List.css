@@ -1,0 +1,10 @@
+ul {
+  list-style-type: none;
+  width:80%;
+
+}
+/* Dotted red border */
+hr.new3 {
+  border-top: 1px dotted grey;
+}
+
