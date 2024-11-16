@@ -3,10 +3,10 @@ import SearchableDropdown from "../SearchableDropdown/SearchableDropdown";
  
 import axios from "axios";
 
-import { useState } from "react"; 
+import React, { useState } from "react"; 
 
-let  obj1  = await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food`);
-let   obj2   = await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food2`);
+let  obj1  = async()=> await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food`);
+let   obj2   = async()=> await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food2`);
 
 export default function Search() {
   // console.log("data1")

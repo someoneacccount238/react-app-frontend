@@ -6,8 +6,8 @@ import { jwtDecode } from "jwt-decode";
 import axios from "../../axios.js"; 
 const shortid = require("shortid");
 
-let obj1 = await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food`);
-let obj2 = await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food2`);
+let obj1 = async()=> await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food`);
+let obj2 = async()=> await axios.get(`https://react-app-backend-ten.vercel.app`+ `/food2`);
 
 export default class Form extends Component {
   state = {
