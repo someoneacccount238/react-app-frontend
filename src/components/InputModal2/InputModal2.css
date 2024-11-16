@@ -1,0 +1,30 @@
+.root {
+  width: 400px;
+  padding: 50px;
+  border: 1px solid #dedede;
+  margin: 50px auto;
+  height: 20em;
+  display:flex;
+  flex-direction: column;
+}
+.saveBtn {
+    flex-grow: 0;
+   flex-shrink: 0;
+   flex-basis: 50%;
+   flex:1;
+   top:10em;
+   left:34em!important; 
+   position:absolute
+}
+.box1{
+    flex-grow: 0;
+   flex-shrink: 0;
+   flex-basis: 50%;
+   flex:1;
+   top:5em;
+   left: 3em !important;
+
+}
+.addNewItem{
+  width:100%
+}

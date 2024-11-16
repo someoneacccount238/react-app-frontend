@@ -1,0 +1,195 @@
+.App {
+  font-family: sans-serif;
+  /* overflow:clip */
+}
+
+.dropdown {
+  position: relative;
+  color: #333;
+  cursor: default;
+}
+
+.dropdown .arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: 0.3rvw;
+  position: absolute;
+  right: 10px;
+  top: 54px;
+  width: 0;
+}
+
+.dropdown .arrow.open {
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}
+
+.dropdown .selected-value input {
+  line-height: 1.5;
+  font-size: 1rvw;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+  transition: all 200ms ease;
+  width: 100%;
+}
+
+.dropdown .options {
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 30vw;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dropdown .options.open {
+  display: block;
+}
+
+.dropdown .option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+.dropdown .option.selected,
+.dropdown .option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+/* Dotted red border */
+hr.new3 {
+  border-top: 1px dotted grey;
+}
+.sideDiv3 { 
+  position: fixed;
+  
+  top:  21vw; 
+}
+
+.sideDiv { 
+  position: fixed;
+
+  top:  27vw;
+}
+.sideDiv-second {
+  position: fixed;
+  top: 33vw;
+  left:27vw;
+}
+.inpt{
+  position: fixed;
+  top: 33vw;
+  left:34.5vw;
+  width:50px;
+  height:30px;
+}
+.grams{
+  position: fixed;
+  top: 32.5vw;
+  left:38vw; 
+}
+.consumed{
+  position: fixed;
+  top: 39vw;
+  left:24.5vw;  
+}
+.calorieDiv{
+  background-color: #e9fbeb;
+  position: fixed;
+  top: 39vw;
+  left:35vw; 
+  height:110px
+ }
+/*
+.container{
+  display: grid;
+  grid-template-columns: repeat(2, 27em); 
+  grid-auto-rows: 100px;
+}
+
+.box1{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2; 
+
+}
+ */
+
+.card {
+  background-color: #ebffee;
+  /* height: 100%; */
+  position: fixed;
+  width: 15vw;
+  left: 35%;
+  /* grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;  */
+
+}
+
+.crossSign {
+  /* top:8px;*/
+    left:11vw; 
+  position: absolute;
+  font-size: 25px;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+}
+.crossSign:hover {
+  color: white;
+}
+/* 
+.box3{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;  
+}
+
+
+.box4{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;  
+} */
+ 
+.icon{
+  position:fixed;
+  top: 35.5vw;
+  left:34vw; 
+}
+.addNewItem{
+  width:100%
+} 
+ 
+.firstPTag{
+  margin-left:3em;margin:0;
+  display:inline;float:left
+}
+.secondPTag{
+  margin:0;display:inline;float:right
+}

@@ -1,0 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+hr {
+  display: block;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 0.7px;
+}
+ 
+.label {
+  font-weight: normal;
+  margin-left: 15%;
+  margin-right: 10%;
+  /* margin-top: 5%; */
+  left: 20%;
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+}
+
+.label2{
+  font-weight: normal;
+  margin-left: 7%;
+  margin-right: 10%;
+  /* margin-top: 5%; */
+  left: 20%;
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+} 
+.stripe1 {
+  position: absolute !important;
+  bottom:1% !important;
+  top: 10% !important;
+  left: 20% !important;
+  right: 20% !important;
+  background-color: #f8f4f4f4;
+  height:50em !important; 
+  width:70em !important; 
+  margin-top:2em !important ;
+}
+.container5 {
+  display: grid;
+  grid-template-columns: repeat(7, 7em);
+  position:absolute !important;
+   width:70vw !important;
+  grid-gap:1vw !important;
+
+}
+
+.dayAndCalories {
+  height: auto;
+  width: 70px;
+  display:inline-block;
+  margin: 2vw !important;
+ }
+.circleBtn {
+  display: block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%; 
+}
+
+.circleBtn:hover {
+  opacity: 1;
+  background-color: #00eee0;
+  border: 1px #99ccff solid;
+  cursor: pointer;
+}
+
+.circleBtn:active {
+  background-color: #00ccc0;
+  border: 1px #000000 solid;
+}
+.greyText{
+  color:grey
+}
+.container7{
+  position:absolute !important;
+  left:1em !important;
+  right: 5em !important;
+  width:100%;
+}
+ 

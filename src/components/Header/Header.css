@@ -1,0 +1,28 @@
+.header-images {
+  display:grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1em);
+   margin-left: 25%; 
+  
+  /* margin-top: 10%;  */
+ grid-gap:45px; 
+}
+p,h1{
+  place-self: center;
+}
+.fc-images{
+  width: 2%;  
+  position:fixed;
+    object-fit: cover;
+    /* place-self: center; */
+    margin-left:7%
+
+   
+}
+.cointainer2{
+  display: grid;  
+ grid-gap:0; 
+}
+.image-div{
+margin-left:55%
+}
