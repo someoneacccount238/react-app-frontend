@@ -1,6 +1,6 @@
 import axios from "axios"; 
 const instance = axios.create({
-  baseURL: `http://localhost:1445`,
+  baseURL: `https://react-app-backend-2643b62b1d3c.herokuapp.com`,
 });
 
 instance.interceptors.request.use((config) => {

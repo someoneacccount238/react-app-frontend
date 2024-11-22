@@ -11,10 +11,10 @@ import "./AddingNewItemForm.css";
 const shortid = require("shortid");
 
 let obj1 = await axios.get(
-  `http://localhost:1445` + `/food`
+  `https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food`
 );
 let obj2 = await axios.get(
-  `http://localhost:1445` + `/food2`
+  `https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food2`
 );
 
 export default class Form extends Component {
@@ -43,7 +43,7 @@ export default class Form extends Component {
 
   fetchData = () => {
     this.writeToJson();
-    fetch(`http://localhost:1445`+`/api/json`, {
+    fetch(`https://react-app-backend-2643b62b1d3c.herokuapp.com`+`/api/json`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
