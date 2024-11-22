@@ -1,0 +1,37 @@
+/* HTML: <div class="loader"></div> */
+/* .loader { 
+   margin: auto;
+}
+
+.container10{
+  
+ 
+} */
+
+html .container10,
+body .container10 {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
+.container10 {
+  position: relative;
+  width: 1920px !important;
+  height:1080px !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom:0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: -webkit-flex;
+}
+
+.loader {
+  position: absolute;
+  top: 10rem; 
+  margin: auto;
+}

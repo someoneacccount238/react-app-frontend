@@ -3,6 +3,9 @@
   padding: 50px;
   border: 1px solid #dedede;
   margin: 50px auto;
+  
+  overflow-y :scroll;
+  overflow-x:  hidden !important;
 }
 
 .field {
@@ -21,8 +24,11 @@
   margin-bottom: 30px;
 }
  .list{
-  display:flex !important;
-  flex-direction:  column   !important; 
+  display:flex !important; 
+  justify-content: space-between;
+
+  flex-shrink: 2;
+  
  }
  .deleteBtn2{
   width:3em;
@@ -30,3 +36,26 @@
   background-color: white;;
   cursor:pointer;
  }
+ .container6{  
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  width: 400px;
+  height: auto;
+  min-height: 200px;
+ }
+ .box { 
+  display:  flex !important;
+   align-items: center;
+   justify-content: space-between; 
+   width: 40%;
+   /* background: green; */
+   height: 30%;
+ 
+}
+.caloriesPTag{
+  display:inline !important;
+}
+.box2{  
+  
+}

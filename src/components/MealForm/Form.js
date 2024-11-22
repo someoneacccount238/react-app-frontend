@@ -68,22 +68,22 @@ export default class Form extends Component {
       return (
         <React.Fragment>
           <form onSubmit={this.handleSubmit}>
-            <div className="form-group"></div>
-            <div className="form-group">
-              <h3 className="caloriesLabel">Calories:</h3>
+            <div className="form-group3"></div>
+            <div className="form-group3">
+              <h3 className="caloriesLabel2">Calories:</h3>
               <input
                 name="calorie"
                 value={this.state.calorie}
                 onChange={this.handleChange}
                 type="number"
-                className="form-control"
+                className="form-control2"
                 id="pwd"
               />
             </div>
-            <button onSubmit={this.handleSubmit} className="btnSave">
+            <button onSubmit={this.handleSubmit} className="btnSave2">
               Save
             </button>
-            <button onClick={this.toggleChange} className="btnCancel">
+            <button onClick={this.toggleChange} className="btnCancel2">
               Cancel
             </button>
           </form>

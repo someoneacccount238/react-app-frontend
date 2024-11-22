@@ -8,8 +8,12 @@ import { useForm } from "react-hook-form";
 import styles from "./Login.css";
 import { fetchAuth, selectIsAuth} from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 const Login = () => {
+  const [t, i18n] = useTranslation("global");
+
   //авторизован или не авторизован
   const isAuth = useSelector(selectIsAuth)
   const dispatch= useDispatch()
@@ -29,7 +33,7 @@ const Login = () => {
     const data = await dispatch(fetchAuth(values));
 
     if (!data.payload){
-      return alert("Login failed")
+      return alert(t("login.no-success"))
     }
     if ("token" in data.payload) {
       window.localStorage.setItem("token", data.payload.token);
@@ -42,7 +46,7 @@ const Login = () => {
   return (
     <Paper className="root">
       <Typography className="title" variant="h5">
-        <h5>Log in</h5>
+        <h5>{t("login.title")}</h5>
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
@@ -56,7 +60,7 @@ const Login = () => {
         />
         <TextField
           className="field"
-          label="Password *"
+          label={t("login.pwd")}
           error={Boolean(errors.password?.message)}
 
           {...register("password", { required: "Enter password" })}
@@ -68,7 +72,7 @@ const Login = () => {
           Log in
         </Button>
         <a>
-          <p> Don't have an account? Sign up</p>
+          <p> {t("login.question")}</p>
         </a>
       </form>
     </Paper>

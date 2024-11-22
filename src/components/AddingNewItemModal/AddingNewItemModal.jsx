@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
-import "./InputModal.css";
-import MealForm from "../MealForm/MealForm.js"; 
+import "./AddingNewItemModal.css";
+import AddingNewItemForm from "../AddingNewItemForm/AddingNewItemForm.js"; 
 
 
 const style = {
@@ -20,13 +20,13 @@ const style = {
   p: 4,
 };
 
-export default function InputModal(props ) {
+export default function AddingNewItemModal(props ) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false); 
   return (
     <div>
-      <Button onClick={handleOpen} disabled={props.disabled}>{props.calories==" "? " ":props.calories}</Button>
+      <Button onClick={handleOpen} className="addNewItem"><h3>add new item</h3></Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -34,7 +34,7 @@ export default function InputModal(props ) {
         aria-describedby="modal-modal-description"
       >
         <Paper className="root containr">
-         <MealForm day={props.day}  date = {props.date}/>
+         <AddingNewItemForm day={props.day}  date = {props.date}/>
           
         </Paper>
       </Modal>

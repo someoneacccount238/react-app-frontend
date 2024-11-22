@@ -1,0 +1,50 @@
+{
+    "nav": {
+      "calorie_tracker": "Calorie Tracker",
+      "food_calculator": "Food Calculator",
+      "day_totals": "Day totals",
+      "work_tracker":"Work tracker",
+      "signup": "sign up",
+      "login": "login",
+      "logout":"logout"
+    },
+    "calendar": {
+      "subtitle": "DIET & WEIGHT MANAGEMENT",
+      "title": "Calorie Tracker",
+      "description": "Track calories every day and see your progress! Click “+” to count calories for the day."
+    },
+    "food_calculator": {
+      "subtitle": "DIET & WEIGHT MANAGEMENT",
+      "title": "Food Calculator",
+      "description": "Get the calories for over 37,000 foods and drinks. Then add them to your Daily Totals to see how your calories add up!",
+      "task": "Search Food",
+      "task2": "Select Food",
+      "food": "Your Food",
+      "amount": "Amount",
+      "portion": "calories | 100 grams",
+      "grams": "grams",
+      "calculate_btn": "calculate",
+      "youve_consumed": "You've consumed",
+      "calories": "calories",
+      "add_btn": "+ ADD TO MY TOTALS",
+      "added_btn": "✔ Added to My Totals",
+      "view":"View My Totals (N items)"
+    },
+    "day_totals": {
+      "title": "My Totals",
+      "calories": "calories",
+      "grams": "grams"
+    },
+    "signup": {
+      "title": "Sign up",
+      "pwd": "Password *"
+    },
+    "login": {
+      "title": "Log in",
+      "pwd": "Password *",
+      "question": "Don't have an account? Sign up",
+      "no-success":"Login failed"
+    },
+    "logout": { "question": "Are you sure you want to log out?" }
+  }
+  

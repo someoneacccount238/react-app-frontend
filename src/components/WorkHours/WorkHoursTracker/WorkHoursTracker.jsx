@@ -1,12 +1,11 @@
-import "./Calendar.css";
+import "./WorkHoursTracker.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../Header/Header";
+import Header from "../../Header/Header.jsx";
 import { Routes, Route } from "react-router-dom";
-import CaloriesForTheDay from "../CaloriesForTheDay/CaloriesForTheDay.jsx";
-import Nav from "../Nav.js";
-import InputModal from "../InputModal/InputModal.jsx";
-import { fetchDateEntries } from "../../redux/slices/calendar.js";
+import Nav from "../../Nav.js";
+import WorkHoursInputForm from "../WorkHoursInputForm/WorkHoursInputForm.jsx"; 
+import { fetchDateEntries } from "../../../redux/slices/calendar.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,12 +15,12 @@ import {
   Redirect,
 } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import axios from "../../axios";
+import axios from "../../../axios.js";
 import { useTranslation } from "react-i18next";
-import Loader from "../Loader/Loader.jsx";
+import Loader from "../../Loader/Loader.jsx"; 
 
-export default function Calendar() {
-   const [t, i18n] = useTranslation("global");
+export default function WorkHoursTracker() {
+  const [t, i18n] = useTranslation("global");
   const styles = {
     disabledButton: {
       backgroundColor: "gray",
@@ -41,7 +40,9 @@ export default function Calendar() {
   for (let i = 1; i <= 7; i++) {
     //число = число - (понедельник) - день недели
     let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
+
     let day = new Date(curr.setDate(first));
+
     //date
     emptyWeek = [...emptyWeek, day];
   }
@@ -63,9 +64,8 @@ export default function Calendar() {
       const obj = jwtDecode(window.localStorage.getItem("token"));
       const userId = obj._id;
 
-      let { data } = await axios.get(`/calendar/${userId}`);
- 
-      // console.log(data);
+      let { data } = await axios.get(`/work/${userId}`);
+        console.log(data);
 
       // console.log(data);
       if (data.length > 0) {
@@ -114,7 +114,7 @@ export default function Calendar() {
 
         const combinedArr = merge(week, sortedArrayWithStartOfWeek);
 
-        combinedArr.sort((a, b) => a - b); // b - a for reverse sort
+         combinedArr.sort((a, b) => a - b); // b - a for reverse sort
 
         const eventsMap = new Map();
 
@@ -124,7 +124,7 @@ export default function Calendar() {
             var i = new Date(new Date(data[item2].date).setHours(0, 0, 0, 0));
 
             if (String(j) === String(i))
-              eventsMap.set(String(i), data[item2].calories);
+              eventsMap.set(String(i), data[item2].workHours);
 
             if (eventsMap.has(String(j))) continue;
             else eventsMap.set(String(j), 0);
@@ -136,7 +136,7 @@ export default function Calendar() {
         //  console.log(eventsMap);
 
         for (let [key, value] of eventsMap) {
-          var newObj = { calories: value, date: key };
+          var newObj = { workHours: value, date: key };
           myArray.push(newObj);
         }
         // console.log(myArray);
@@ -148,41 +148,28 @@ export default function Calendar() {
 
   React.useEffect(() => getDateEntries(), []);
 
-  // const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 7000);
-  // }, []);
+  useEffect(()=>{
+    setIsLoading(true);
+    setTimeout(()=>{
+      setIsLoading(false);
+    },6000)
+  },[])
 
-  // return !isLoading ? (
-
-  return  (
+  return !isLoading ? (
     object1.length > 0 ? (
       <div className="stripe stripe5">
-        <Header name={t("calendar.title")} />
-         
-        <hr className="double" />
-        <h3 className="label">{t("calendar.description")}</h3>
+        <Header name="Work Tracker" /> 
+         <hr className="double" />
+      
         <div className="container7">
           {object1.map((a) => (
             <div className="dayAndCalories">
               <h3>
                 {String(a.date).slice(0, 3)} {String(a.date).slice(8, 10)}
               </h3>
-              {String(new Date(a.date).setHours(0, 0, 0, 0)) === String(now) ? (
-                <Link to="/food-calculator" className="link">
-                  <button className="circleBtn">
-                    <p className="bigPlusSign">
-                      {" "}
-                      {a.calories == 0 ? "+" : a.calories}
-                    </p>
-                    {/* find today entry if no entrie is found -- +  */}
-                  </button>
-                </Link>
-              ) : (
+               
                 <button
                   className="circleBtn"
                   style={
@@ -191,16 +178,16 @@ export default function Calendar() {
                       : styles.enabledButton
                   }
                 >
-                  <InputModal
-                    calories={a.calories}
+                  <WorkHoursInputForm
+                    workHours={a.workHours}
                     date={a.date}
                     disabled={
                       String(new Date(a.date).setHours(0, 0, 0, 0)) >
                       String(now)
                     }
-                  ></InputModal>
+                  ></WorkHoursInputForm>
                 </button>
-              )}
+               
             </div>
           ))}
         </div>
@@ -208,9 +195,12 @@ export default function Calendar() {
       </div>
     ) : (
       <div className="stripe">
-        <Header name={t("calendar.title")} /> 
+        <Header />
         <hr className="double" />
-        <h3 className="label">{t("calendar.description")}</h3>
+        <h3 className="label">
+          Track workHours every day and see your progress! Click “+” to count
+          workHours for the day.
+        </h3>
         <div className="container7">
           {emptyWeek.map((a) => (
             <div className="dayAndCalories">
@@ -218,13 +208,7 @@ export default function Calendar() {
                 {String(a).substring(0, 3)} {String(a).substring(8, 10)}
               </h3>
 
-              {String(new Date(a).setHours(0, 0, 0, 0)) === String(now) ? (
-                <Link to="/food-calculator">
-                  <button className="circleBtn">
-                    +{/* find today entry if no entrie is found -- +  */}
-                  </button>
-                </Link>
-              ) : (
+              
                 <button
                   className="circleBtn"
                   style={
@@ -233,22 +217,22 @@ export default function Calendar() {
                       : styles.enabledButton
                   }
                 >
-                  <InputModal
-                    calories=" "
+                  <WorkHoursInputForm
+                    workHours=" "
                     date={a}
                     disabled={
                       String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
                     }
-                  ></InputModal>
+                  ></WorkHoursInputForm>
                 </button>
-              )}
+               
             </div>
           ))}
         </div>
         {/* <JumpingBanner /> */}
       </div>
     )
-  )  
-  //   <Loader />
-  // );
+  ) : (
+    <Loader />
+  );
 }

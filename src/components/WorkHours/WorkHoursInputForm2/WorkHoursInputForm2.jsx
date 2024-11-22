@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./MealForm.css";
+import "./WorkHoursInputForm2.css";
 import Form from "./Form";
-import Meal from "./Meal";
+import Input from "./Input";
  
 
-class MealForm extends Component {
+class WorkHoursInputForm2 extends Component {
   state = {
     meals: []
   };
@@ -25,14 +25,14 @@ class MealForm extends Component {
     return (
       <div className="container4">
         <div className="jumbotron">
-          <h2>Calories for {String(this.props.date).slice(0,3)} {String(this.props.date).slice(8, 10)}</h2>
+          <h2>workHours for {String(this.props.date).slice(0,3)} {String(this.props.date).slice(8, 10)}</h2>
           <hr />
           <Form onsubmit={this.addMeal} date={this.props.date} />
           <table className="table">
             <thead>
               <tr>
                 <th>Meal</th>
-                <th>Calories</th>
+                <th>workHours</th>
                 <th />
               </tr>
             </thead>
@@ -43,7 +43,7 @@ class MealForm extends Component {
                 <td>
                   <span role="img">🍎</span>
                   {this.state.meals.reduce(
-                    (totalCalories, meal) => totalCalories + meal.calorie,
+                    (totalworkHours, meal) => totalworkHours + meal.workHours,
                     0
                   )}
                 </td>
@@ -57,4 +57,4 @@ class MealForm extends Component {
   }
 }
 
-export default MealForm;
+export default WorkHoursInputForm2;

@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
-import "./InputModal.css";
-import MealForm from "../MealForm/MealForm.js"; 
+import "./WorkHoursInputForm.css";
+import WorkHoursInputForm2 from "../WorkHoursInputForm2/WorkHoursInputForm2.jsx"; 
 
 
 const style = {
@@ -20,13 +20,13 @@ const style = {
   p: 4,
 };
 
-export default function InputModal(props ) {
+export default function WorkHoursInputForm(props ) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false); 
   return (
     <div>
-      <Button onClick={handleOpen} disabled={props.disabled}>{props.calories==" "? " ":props.calories}</Button>
+      <Button onClick={handleOpen} disabled={props.disabled}>{props.workHours==" "? " ":props.workHours}</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -34,7 +34,7 @@ export default function InputModal(props ) {
         aria-describedby="modal-modal-description"
       >
         <Paper className="root containr">
-         <MealForm day={props.day}  date = {props.date}/>
+         <WorkHoursInputForm2 day={props.day}  date = {props.date}/>
           
         </Paper>
       </Modal>

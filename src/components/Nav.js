@@ -8,7 +8,7 @@ import {
   useLocation,
   Redirect,
 } from "react-router-dom";
-
+ 
 //Material UI imports
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -19,6 +19,9 @@ import Chip from "@material-ui/core/Chip";
 import { selectIsAuth, logout } from "../redux/slices/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthMe } from "../redux/slices/auth";
+import CustomSwitch from "./CustomSwitch/CustomSwitch.jsx";
+import { useTranslation } from "react-i18next";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   loginBtn: {
     color: "white",
-    width:"150px"
+    width:"200px"
   },
   loginBtnErr: {
     color: "white",
@@ -47,6 +50,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Nav() {
+  const [t, i18n] = useTranslation("global");
+
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
   const classes = useStyles();
@@ -56,7 +61,7 @@ export default function Nav() {
   }, []);
 
   const onClickLogout = () => {
-    if (window.confirm("Are you sure you want to log out?")) dispatch(logout());
+    if (window.confirm(t("logout.question"))) dispatch(logout());
     window.localStorage.removeItem("token");
   };
 
@@ -69,28 +74,32 @@ export default function Nav() {
   };
 
   window.onload();
-  
-  
-  return (
+
+   return ( 
     <div className={classes.nav}>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
             <Link to="/calendar">
               <Button className={classes.loginBtn} color="inherit">
-                Calorie Tracker
+                {t("nav.calorie_tracker")}
               </Button>
             </Link>
             <Link to="/food-calculator">
               <Button className={classes.loginBtn} color="inherit">
-                Food Calculator
-              </Button>
+              {t("nav.food_calculator")}              </Button>
             </Link>
             <Link to="/my-totals">
               <Button className={classes.loginBtn} color="inherit">
-                Day Totals{" "}
+              {t("nav.day_totals")}
               </Button>
             </Link>
+            <Link to="/work-tracker">
+              <Button className={classes.loginBtn} color="inherit">
+              {t("nav.work_tracker")}
+              </Button>
+            </Link>
+            <CustomSwitch></CustomSwitch>
             {isAuth && <a className={classes.push} label={""} />}
             {isAuth && (
               <Link to="/">
@@ -99,14 +108,14 @@ export default function Nav() {
                   color="error"
                   onClick={onClickLogout}
                 >
-                  Logout
+                 {t("nav.logout")}  
                 </Button>
               </Link>
             )}
             {!isAuth && (
               <Link className={classes.push} to="/register">
                 <Button className={classes.loginBtn} color="inherit">
-                  Sign Up
+                {t("nav.signup")}  
                 </Button>
               </Link>
             )}
@@ -115,7 +124,7 @@ export default function Nav() {
                 {" "}
                 <a href="/login">
                   <Button className={classes.loginBtn} color="inherit">
-                    Login
+                  {t("nav.login")}  
                   </Button>{" "}
                 </a>
               </Link>
@@ -124,5 +133,5 @@ export default function Nav() {
         </AppBar>
       </div>
     </div>
-  );
+  )  
 }

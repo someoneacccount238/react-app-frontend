@@ -10,8 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { fetchRegister, selectIsAuth } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 const Registration = () => {
+  const [t, i18n] = useTranslation("global");
+
   const isAuth = useSelector(selectIsAuth);
 
   const dispatch = useDispatch();
@@ -49,7 +53,7 @@ const Registration = () => {
   return (
     <Paper className="root">
       <Typography className="title" variant="h5">
-        Sign up
+       {t("signup.title")}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
@@ -63,7 +67,7 @@ const Registration = () => {
         />
         <TextField
           className="field"
-          label="Password *"
+          label={t("signup.pwd")}
           error={Boolean(errors.password?.message)}
           {...register("password", { required: "Enter password" })}
           helperText={errors.password?.message}

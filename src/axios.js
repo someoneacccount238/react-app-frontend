@@ -1,6 +1,6 @@
 import axios from "axios"; 
 const instance = axios.create({
-  baseURL: `https://react-app-backend-ten.vercel.app`,
+  baseURL: `http://localhost:1445`,
 });
 
 instance.interceptors.request.use((config) => {
