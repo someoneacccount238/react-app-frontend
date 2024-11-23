@@ -9,8 +9,8 @@ import "./AddingNewItemForm.css";
 
 const shortid = require("shortid");
 
-let obj1 = await axios.get(`http://localhost:1445` + `/food`);
-let obj2 = await axios.get(`http://localhost:1445` + `/food2`);
+let obj1 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food`);
+let obj2 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food2`);
 
 export default class Form extends Component {
   state = {
@@ -51,7 +51,7 @@ export default class Form extends Component {
 
   // fetchData = () => {
   //   this.writeToJson();
-  //   fetch(`http://localhost:1445`+`/api/json`, {
+  //   fetch(`https://react-app-backend-ten.vercel.app`+`/api/json`, {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json",

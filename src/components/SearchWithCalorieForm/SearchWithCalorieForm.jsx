@@ -5,10 +5,10 @@ import axios from "axios";
 
 import React, { useState } from "react";
 
-let obj1 = await axios.get(`http://localhost:1445` + `/food`);
-let obj2 = await axios.get(`http://localhost:1445` + `/food2`);
-let obj3 = await axios.get(`http://localhost:1445` + `/food3`);
-let obj4 = await axios.get(`http://localhost:1445` + `/food4`);
+let obj1 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food`);
+let obj2 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food2`);
+let obj3 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food3`);
+let obj4 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food4`);
 
 export default function SearchWithCalorieForm() {
   var data1, data2;
