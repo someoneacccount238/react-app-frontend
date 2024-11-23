@@ -1,6 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 
 hr {
   display: block;
@@ -11,7 +9,7 @@ hr {
   border-style: inset;
   border-width: 0.7px;
 }
- 
+
 .label {
   font-weight: normal;
   margin-left: 15%;
@@ -25,7 +23,7 @@ hr {
   font-style: normal;
 }
 
-.label2{
+.label2 {
   font-weight: normal;
   margin-left: 7%;
   margin-right: 10%;
@@ -36,16 +34,15 @@ hr {
   font-optical-sizing: auto;
   /* font-weight: <weight>; */
   font-style: normal;
-} 
+}
 .stripe {
   position: fixed !important;
-  bottom:1% !important;
+  bottom: 1% !important;
   top: 10% !important;
   left: 20% !important;
   right: 20% !important;
   background-color: #f8f4f4f4;
   /* overflow-y: scroll; */
-  
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -55,14 +52,13 @@ hr {
 
   .stripe {
     position: fixed !important;
-    bottom:0% !important;
+    bottom: 0% !important;
     top: 0% !important;
     left: 0% !important;
     right: 0% !important;
     background-color: #f8f4f4f4;
     /* overflow-y: scroll; */
   }
-
 }
 .container {
   display: grid;
@@ -94,7 +90,6 @@ hr {
   background-color: #00ccc0;
   border: 1px #000000 solid;
 }
-.greyText{
-  color:grey
+.greyText {
+  color: grey;
 }
- 

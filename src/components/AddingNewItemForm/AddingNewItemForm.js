@@ -2,22 +2,21 @@ import React, { Component } from "react";
 import "./AddingNewItemForm.css";
 import Form from "./Form";
 import Meal from "./Meal";
- 
 
 class AddingNewItemForm extends Component {
   state = {
-    meals: []
+    meals: [],
   };
 
-  addMeal = meal => {
+  addMeal = (meal) => {
     this.setState({
-      meals: [meal ]
+      meals: [meal],
     });
   };
 
-  onDelete = id => {
+  onDelete = (id) => {
     this.setState({
-      meals: this.state.meals.filter(meal => meal.id !== id)
+      meals: this.state.meals.filter((meal) => meal.id !== id),
     });
   };
 
@@ -28,7 +27,6 @@ class AddingNewItemForm extends Component {
           <h2>New Food</h2>
           <hr />
           <Form onsubmit={this.addMeal} date={this.props.date} />
-          
         </div>
       </div>
     );

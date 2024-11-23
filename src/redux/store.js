@@ -22,7 +22,7 @@ const store = configureStore({
   reducer: {
     auth: authReducer,
     totals: entriesReducer,
-    calendar:calendarReducer
+    calendar: calendarReducer,
   },
 });
 

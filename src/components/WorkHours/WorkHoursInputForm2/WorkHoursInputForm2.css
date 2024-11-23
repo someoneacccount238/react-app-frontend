@@ -1,53 +1,52 @@
 .App {
-    text-align: center;
-  }
-  
-  .container4{
-    position:absolute;
-    /* left:28em !important; */
-  }
-  .mealLabel{
-    position:absolute !Important;
-    top:4em;
-  }
+  text-align: center;
+}
 
-  .caloriesLabel2{
-    position:absolute !important; 
-  }
-  .btnSave{
-    position:absolute !important;
-    top:12em;
-    left:10em !important;
-    border:none;
-  }
+.container4 {
+  position: absolute;
+  /* left:28em !important; */
+}
+.mealLabel {
+  position: absolute !important;
+  top: 4em;
+}
 
-  .btnCancel{
-    position:absolute !Important;
-    top:12em !important;
-    left:15em !important;
-    border:none;
-    width:5em;
-  }
-  .table{
-    position:absolute !Important;
-    top:10em !important;
-    left:1em !important;
-  }
-  .foodLabel{
-    
-  }
-  .btnSave2{
-    position:absolute !important;
-    top:25em ;
-    left:10em !important;
-    border:none;    
-    width:5em;
-  }
+.caloriesLabel2 {
+  position: absolute !important;
+}
+.btnSave {
+  position: absolute !important;
+  top: 12em;
+  left: 10em !important;
+  border: none;
+}
 
-  .btnCancel2{
-    position:absolute !important;
-    top:25em !important;
-    left:15em !important;
-    border:none;
-    width:5em;
-  }
+.btnCancel {
+  position: absolute !important;
+  top: 12em !important;
+  left: 15em !important;
+  border: none;
+  width: 5em;
+}
+.table {
+  position: absolute !important;
+  top: 10em !important;
+  left: 1em !important;
+}
+.foodLabel {
+}
+.btnSave2 {
+  position: absolute !important;
+  top: 25em;
+  left: 10em !important;
+  border: none;
+  width: 5em;
+}
+
+.btnCancel2 {
+  position: absolute !important;
+  top: 25em !important;
+  left: 15em !important;
+  border: none;
+  width: 5em;
+}

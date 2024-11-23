@@ -1,3 +1,4 @@
+@import-normalize;
 .App {
   text-align: center;
 }
@@ -92,15 +93,13 @@ body {
 
   .stripe {
     position: fixed !important;
-    bottom:0% !important;
+    bottom: 0% !important;
     top: 0% !important;
     left: 0% !important;
     right: 0% !important;
     background-color: #f8f4f4f4;
     /* overflow-y: scroll; */
-    
   }
-
 }
 
 .MuiIconButton-root:hover {

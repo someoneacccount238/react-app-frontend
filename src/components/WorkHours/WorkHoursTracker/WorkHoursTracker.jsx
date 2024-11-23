@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Header/Header.jsx";
 import { Routes, Route } from "react-router-dom";
 import Nav from "../../Nav.js";
-import WorkHoursInputForm from "../WorkHoursInputForm/WorkHoursInputForm.jsx"; 
+import WorkHoursInputForm from "../WorkHoursInputForm/WorkHoursInputForm.jsx";
 import { fetchDateEntries } from "../../../redux/slices/calendar.js";
 import {
   BrowserRouter as Router,
@@ -17,7 +17,7 @@ import {
 import { jwtDecode } from "jwt-decode";
 import axios from "../../../axios.js";
 import { useTranslation } from "react-i18next";
-import Loader from "../../Loader/Loader.jsx"; 
+import Loader from "../../Loader/Loader.jsx";
 
 export default function WorkHoursTracker() {
   const [t, i18n] = useTranslation("global");
@@ -65,7 +65,7 @@ export default function WorkHoursTracker() {
       const userId = obj._id;
 
       let { data } = await axios.get(`/work/${userId}`);
-        console.log(data);
+      console.log(data);
 
       // console.log(data);
       if (data.length > 0) {
@@ -114,7 +114,7 @@ export default function WorkHoursTracker() {
 
         const combinedArr = merge(week, sortedArrayWithStartOfWeek);
 
-         combinedArr.sort((a, b) => a - b); // b - a for reverse sort
+        combinedArr.sort((a, b) => a - b); // b - a for reverse sort
 
         const eventsMap = new Map();
 
@@ -150,44 +150,42 @@ export default function WorkHoursTracker() {
 
   const [isLoading, setIsLoading] = React.useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     setIsLoading(true);
-    setTimeout(()=>{
+    setTimeout(() => {
       setIsLoading(false);
-    },6000)
-  },[])
+    }, 6000);
+  }, []);
 
   return !isLoading ? (
     object1.length > 0 ? (
       <div className="stripe stripe5">
-        <Header name="Work Tracker" /> 
-         <hr className="double" />
-      
+        <Header name="Work Tracker" />
+        <hr className="double" />
+
         <div className="container7">
           {object1.map((a) => (
             <div className="dayAndCalories">
               <h3>
                 {String(a.date).slice(0, 3)} {String(a.date).slice(8, 10)}
               </h3>
-               
-                <button
-                  className="circleBtn"
-                  style={
+
+              <button
+                className="circleBtn"
+                style={
+                  String(new Date(a.date).setHours(0, 0, 0, 0)) > String(now)
+                    ? styles.disabledButton
+                    : styles.enabledButton
+                }
+              >
+                <WorkHoursInputForm
+                  workHours={a.workHours}
+                  date={a.date}
+                  disabled={
                     String(new Date(a.date).setHours(0, 0, 0, 0)) > String(now)
-                      ? styles.disabledButton
-                      : styles.enabledButton
                   }
-                >
-                  <WorkHoursInputForm
-                    workHours={a.workHours}
-                    date={a.date}
-                    disabled={
-                      String(new Date(a.date).setHours(0, 0, 0, 0)) >
-                      String(now)
-                    }
-                  ></WorkHoursInputForm>
-                </button>
-               
+                ></WorkHoursInputForm>
+              </button>
             </div>
           ))}
         </div>
@@ -208,24 +206,22 @@ export default function WorkHoursTracker() {
                 {String(a).substring(0, 3)} {String(a).substring(8, 10)}
               </h3>
 
-              
-                <button
-                  className="circleBtn"
-                  style={
+              <button
+                className="circleBtn"
+                style={
+                  String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
+                    ? styles.disabledButton
+                    : styles.enabledButton
+                }
+              >
+                <WorkHoursInputForm
+                  workHours=" "
+                  date={a}
+                  disabled={
                     String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
-                      ? styles.disabledButton
-                      : styles.enabledButton
                   }
-                >
-                  <WorkHoursInputForm
-                    workHours=" "
-                    date={a}
-                    disabled={
-                      String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
-                    }
-                  ></WorkHoursInputForm>
-                </button>
-               
+                ></WorkHoursInputForm>
+              </button>
             </div>
           ))}
         </div>

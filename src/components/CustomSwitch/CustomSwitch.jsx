@@ -15,7 +15,7 @@ export default function CustomSwitch() {
   const handleOnChange = () => {
     setCheck(!check);
     setFirstTimeSeen(true);
-    console.log(check)
+    console.log(check);
   };
 
   //gets language from localstorage and sets toggle
@@ -28,10 +28,9 @@ export default function CustomSwitch() {
         document.getElementById("checkbox").checked = true;
         // console.log(document.getElementById("checkbox").checked);
       }
-      if (x=="ru"){
-        document.getElementById("checkbox").checked = false;
-
-      }
+    if (x == "ru") {
+      document.getElementById("checkbox").checked = false;
+    }
 
     if (firstTimeSeen == true) {
       if (check) {

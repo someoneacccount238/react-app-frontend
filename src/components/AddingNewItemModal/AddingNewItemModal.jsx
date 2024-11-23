@@ -5,8 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import "./AddingNewItemModal.css";
-import AddingNewItemForm from "../AddingNewItemForm/AddingNewItemForm.js"; 
-
+import AddingNewItemForm from "../AddingNewItemForm/AddingNewItemForm.js";
 
 const style = {
   position: "absolute",
@@ -20,13 +19,15 @@ const style = {
   p: 4,
 };
 
-export default function AddingNewItemModal(props ) {
+export default function AddingNewItemModal(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false); 
+  const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen} className="addNewItem"><h3>add new item</h3></Button>
+      <Button onClick={handleOpen} className="addNewItem">
+        <h3>add new item</h3>
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -34,8 +35,7 @@ export default function AddingNewItemModal(props ) {
         aria-describedby="modal-modal-description"
       >
         <Paper className="root containr">
-         <AddingNewItemForm day={props.day}  date = {props.date}/>
-          
+          <AddingNewItemForm day={props.day} date={props.date} />
         </Paper>
       </Modal>
     </div>

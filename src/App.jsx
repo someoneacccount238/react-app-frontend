@@ -18,6 +18,7 @@ import Registration from "./components/Registration/Registration.js";
 import MyTotals from "./components/MyTotals/MyTotals.jsx";
 
 import CaloriesForTheDay from "./components/CaloriesForTheDay/CaloriesForTheDay.jsx";
+import MainPage from "./components/MainPage/MainPage.jsx";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
@@ -33,17 +34,15 @@ export const LangContext = React.createContext();
 export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  if (isAuth) document.getElementById("checkbox").style.right = '10rem';
+  // if (isAuth) document.getElementById("checkbox").style.right = "10rem";
 
   React.useEffect(() => {
     dispatch(fetchAuthMe());
   }, []);
 
-  var x = localStorage.getItem("LANGUAGE");
-
   i18next.init({
     interpolation: { escapeValue: false },
-    lng: x  ,
+    lng: "ru",
     resources: {
       en: {
         global: global_en,
@@ -75,7 +74,7 @@ export default function App() {
           element={[<Nav />, <CaloriesForTheDay />]}
         />
 
-        <Route path="/" element={[<Nav />]} />
+        <Route path="/" element={[<Nav />, <MainPage />]} />
       </Routes>
     </I18nextProvider>,
   ];

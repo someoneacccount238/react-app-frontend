@@ -2,22 +2,21 @@ import React, { Component } from "react";
 import "./WorkHoursInputForm2.css";
 import Form from "./Form";
 import Input from "./Input";
- 
 
 class WorkHoursInputForm2 extends Component {
   state = {
-    meals: []
+    meals: [],
   };
 
-  addMeal = meal => {
+  addMeal = (meal) => {
     this.setState({
-      meals: [meal ]
+      meals: [meal],
     });
   };
 
-  onDelete = id => {
+  onDelete = (id) => {
     this.setState({
-      meals: this.state.meals.filter(meal => meal.id !== id)
+      meals: this.state.meals.filter((meal) => meal.id !== id),
     });
   };
 
@@ -25,7 +24,10 @@ class WorkHoursInputForm2 extends Component {
     return (
       <div className="container4">
         <div className="jumbotron">
-          <h2>workHours for {String(this.props.date).slice(0,3)} {String(this.props.date).slice(8, 10)}</h2>
+          <h2>
+            workHours for {String(this.props.date).slice(0, 3)}{" "}
+            {String(this.props.date).slice(8, 10)}
+          </h2>
           <hr />
           <Form onsubmit={this.addMeal} date={this.props.date} />
           <table className="table">
@@ -37,7 +39,6 @@ class WorkHoursInputForm2 extends Component {
               </tr>
             </thead>
             <tbody>
-               
               <tr>
                 <td>Total:</td>
                 <td>

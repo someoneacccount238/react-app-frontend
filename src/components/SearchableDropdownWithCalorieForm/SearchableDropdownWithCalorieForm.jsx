@@ -133,6 +133,7 @@ const SearchableDropdownWithCalorieForm = ({
     setClicked(false);
     setCalculateBlock(false);
     changeBtnName(t("food_calculator.add_btn"));
+    makeBtnUnactive();
   };
   const onSubmit = () => {
     const foodName = getDisplayValue();
@@ -282,10 +283,7 @@ const SearchableDropdownWithCalorieForm = ({
     );
   else if (clicked) {
     return (
-      <div className="container">
-        <div className="box1">
-          <h3>{t("food_calculator.task2")}</h3>
-        </div>
+      <div className="container15">
         <div className="box22">
           <h3>{t("food_calculator.food")}</h3>
         </div>
@@ -300,13 +298,16 @@ const SearchableDropdownWithCalorieForm = ({
             <span>&#10006;</span>
           </div>
         </div>
-        <div className="box3">
+        <div className="box33">
           <h3 className="sideDiv-second">{t("food_calculator.amount")}</h3>
         </div>
-        <div className="box4">
-          <input className="inpt" type="number" ref={child2} />
-
-          <p className="grams">{t("food_calculator.grams")}</p>
+        <div className="box44">
+          <div>
+            <input className="inpt" type="number" ref={child2} />
+          </div>
+          <div>
+            <p className="grams">{t("food_calculator.grams")}</p>
+          </div>
           <img src={require("../images/hand.jpg")} className="icon" />
         </div>
         {!calculateBlock && (
@@ -323,15 +324,15 @@ const SearchableDropdownWithCalorieForm = ({
         {/* <hr className="new3" />  */}
 
         {calculateBlock && [
-          <div className="box5">
+          <div className="box555">
             <h3 className="consumed"> {t("food_calculator.youve_consumed")}</h3>
           </div>,
 
-          <div className="box6">
-            <div className="calorieDiv">
+          <div className="calorieDiv">
+            <p>
+              {Math.round(sum)}{" "}
               <p className="calories">{t("food_calculator.calories")}</p>
-              <h1> {Math.round(sum)}</h1>
-            </div>
+            </p>
           </div>,
 
           <div className="box77">

@@ -5,23 +5,21 @@ import axios from "axios";
 
 import React, { useState } from "react";
 
-let obj1 = await axios.get(`https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food`);
-let obj2 = await axios.get(`https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food2`);
-let obj3 = await axios.get(`https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food3`);
-let obj4 = await axios.get(`https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food4`);
+let obj1 = await axios.get(`http://localhost:1445` + `/food`);
+let obj2 = await axios.get(`http://localhost:1445` + `/food2`);
+let obj3 = await axios.get(`http://localhost:1445` + `/food3`);
+let obj4 = await axios.get(`http://localhost:1445` + `/food4`);
 
 export default function SearchWithCalorieForm() {
   var data1, data2;
   function validate() {
-    if (document.getElementById("checkbox")) {
-      if (document.getElementById("checkbox").checked) {
-        data1 = obj1.data;
-        data2 = obj2.data;
-      } else {
-        data1 = obj3.data;
-        data2 = obj4.data;
-      }
-    }
+    // if (document.getElementById("checkbox")) {
+    // if (document.getElementById("checkbox").checked) {
+    //   data1 = obj1.data;
+    //   data2 = obj2.data;
+    // } else {
+    data1 = obj3.data;
+    data2 = obj4.data;
   }
   validate();
   const [value, setValue] = useState("");
@@ -35,6 +33,15 @@ export default function SearchWithCalorieForm() {
     ]);
   for (var item2 in data2)
     foodsArray.push([data2[item2].name, data2[item2].energy]);
+
+  var newFoodItem = window.localStorage.getItem("NEW_FOOD_ITEMS");
+  let jsonArray = JSON.parse(newFoodItem);
+
+  if (Array.isArray(jsonArray)) {
+    for (var item3 in jsonArray)
+      foodsArray.push([jsonArray[item3].name, jsonArray[item3].energy]);
+  } else foodsArray.push([jsonArray.name, jsonArray.energy]);
+
   foodsArray.sort((a, b) => a[0] - b[0]);
 
   return (

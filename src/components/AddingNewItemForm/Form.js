@@ -7,15 +7,10 @@ import axios from "../../axios.js";
 
 import "./AddingNewItemForm.css";
 
-
 const shortid = require("shortid");
 
-let obj1 = await axios.get(
-  `https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food`
-);
-let obj2 = await axios.get(
-  `https://react-app-backend-2643b62b1d3c.herokuapp.com` + `/food2`
-);
+let obj1 = await axios.get(`http://localhost:1445` + `/food`);
+let obj2 = await axios.get(`http://localhost:1445` + `/food2`);
 
 export default class Form extends Component {
   state = {
@@ -37,20 +32,33 @@ export default class Form extends Component {
       energy: this.inputRef2.current.value,
     };
 
-    this.data2.push(fields);
-    console.log(this.data2)
+    // this.data2.push(fields);
+
+    var newFoodItem = window.localStorage.getItem("NEW_FOOD_ITEMS");
+
+    let jsonArray = JSON.parse(newFoodItem);
+
+    if (jsonArray) {
+      if (!Array.isArray(jsonArray)) {
+        var newArr = new Array(jsonArray, fields);
+      } else {
+        var newArr = new Array(...jsonArray, fields);
+      }
+    } else var newArr = fields;
+
+    window.localStorage.setItem("NEW_FOOD_ITEMS", JSON.stringify(newArr));
   };
 
-  fetchData = () => {
-    this.writeToJson();
-    fetch(`https://react-app-backend-2643b62b1d3c.herokuapp.com`+`/api/json`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(this.data2),
-    });
-  };
+  // fetchData = () => {
+  //   this.writeToJson();
+  //   fetch(`http://localhost:1445`+`/api/json`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(this.data2),
+  //   });
+  // };
 
   toggleChange = () => {
     this.setState({
@@ -70,8 +78,10 @@ export default class Form extends Component {
       text: this.state.text,
       calorie: parseInt(this.state.calorie),
     });
-    
-      this.fetchData(); 
+
+    // this.fetchData();
+
+    this.writeToJson();
 
     this.setState({
       text: "",

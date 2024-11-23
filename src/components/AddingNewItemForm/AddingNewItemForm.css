@@ -1,42 +1,41 @@
 .App {
-    text-align: center;
-  }
-  
-  .container3{
-    position:absolute; 
-  }
-  .mealLabel{
-    position:absolute !Important;
-    top:4em;
-  }
+  text-align: center;
+}
 
-  .caloriesLabel{
-    position:absolute !Important;
-        top:6em !important; 
-  }
-  .foodLabel{
-    position:absolute !Important; 
+.container3 {
+  position: absolute;
+}
+.mealLabel {
+  position: absolute !important;
+  top: 4em;
+}
 
-  }
-  .btnSave{
-    position:absolute !Important;
-    top:12em;
-    left:10em !important;
-    border:none;
-  }
+.caloriesLabel {
+  position: absolute !important;
+  top: 6em !important;
+}
+.foodLabel {
+  position: absolute !important;
+}
+.btnSave {
+  position: absolute !important;
+  top: 12em;
+  left: 10em !important;
+  border: none;
+}
 
-  .btnCancel{
-    position:absolute !Important;
-    top:12em !important;
-    left:15em !important;
-    border:none;
-    width:5em;
-  }
-  .table{
-    position:absolute !Important;
-    top:10em !important;
-    left:1em !important;
-  }
+.btnCancel {
+  position: absolute !important;
+  top: 12em !important;
+  left: 15em !important;
+  border: none;
+  width: 5em;
+}
+.table {
+  position: absolute !important;
+  top: 10em !important;
+  left: 1em !important;
+}
 /* 
   .form-group2{
     display: -webkit-flex;
@@ -55,36 +54,32 @@
     min-height: 200px;
   } */
 
-  .table { 
-    border-collapse: collapse;
-    width: 100%;
-  }
-  .form-control{
-    position:absolute;
-    top:-5vw;
-    left:10vw;
-
-  }
-  .form-control2{
-    position:absolute;
-    top:-2vw;
-    left:10vw;
-    
-  }
-  .foodLabel{
-    top:-5vw;
-    position:absolute;
-  }
-  .caloriesLabel{
-    
-    position:absolute;
-    top:0vw !important; 
-  }
-  .buttons{
-    position:absolute;
-  }
-  .table1{
-    
-    position:absolute;
-    top:20vw;
-  }
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.form-control {
+  position: absolute;
+  top: -5vw;
+  left: 10vw;
+}
+.form-control2 {
+  position: absolute;
+  top: -2vw;
+  left: 10vw;
+}
+.foodLabel {
+  top: -5vw;
+  position: absolute;
+}
+.caloriesLabel {
+  position: absolute;
+  top: 0vw !important;
+}
+.buttons {
+  position: absolute;
+}
+.table1 {
+  position: absolute;
+  top: 20vw;
+}

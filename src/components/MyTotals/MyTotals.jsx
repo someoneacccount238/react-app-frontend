@@ -28,6 +28,8 @@ const MyTotals = () => {
 
   const [jsonArray, setJsonArray] = useState([]);
 
+  const [sum, setSum] = useState(0);
+
   useEffect(() => {
     getAllEntries();
   }, jsonArray);
@@ -53,13 +55,8 @@ const MyTotals = () => {
     var getItems = window.localStorage.getItem("MY_TOTALS_FOOD_ENTRIES");
 
     let jsonArray3 = JSON.parse(getItems);
+
     if (jsonArray3) {
-      let len = jsonArray3.length;
-
-      // for (let i = 0; i < jsonArray3.length; i++)
-      //   jsonArray3[i] && jsonArray3.push(jsonArray3[i]); // copy non-empty values to the end of the array
-
-      // jsonArray3.splice(0, len); // cut the array and leave only the non-empty values
       var filtered = jsonArray3.filter(function (el) {
         return el != null;
       });
@@ -70,7 +67,6 @@ const MyTotals = () => {
       );
     }
   };
-
 
   const deleteEntry = (event, id) => {
     // hideEntry(true)
@@ -83,10 +79,11 @@ const MyTotals = () => {
 
     if (jsonArray != null) {
       for (let i = 0; i < jsonArray.length; i++) {
-        if (jsonArray[i]) if (id == jsonArray[i].id) {
-          indexToDelete= i ;
-          delete jsonArray[i];
-        }
+        if (jsonArray[i])
+          if (id == jsonArray[i].id) {
+            indexToDelete = i;
+            delete jsonArray[i];
+          }
       }
 
       window.localStorage.setItem(
@@ -94,14 +91,15 @@ const MyTotals = () => {
         JSON.stringify(jsonArray)
       );
     }
-    parseNulls()
+    parseNulls();
     saveTotalCalories();
     handleClickDelete(indexToDelete);
     // window.location.reload(false);
-
   };
 
-  // useEffect(() => {}, jsonArray);
+  useEffect(() => {
+    saveTotalCalories();
+  }, sum);
 
   const handleClickDelete = (index) => {
     const newJsonArray = [...jsonArray];
@@ -142,7 +140,6 @@ const MyTotals = () => {
 
       console.log(data);
 
- 
       if (data) {
         // for (let item in data) {
         //update
@@ -152,7 +149,10 @@ const MyTotals = () => {
 
       //if entries are found, find entries of today, and update them
     }
+    setSum(sum);
+    console.log("run savetotalcalories");
   };
+  // saveTotalCalories();
   const child = useRef();
 
   return (
@@ -167,31 +167,53 @@ const MyTotals = () => {
                 if (item) {
                   return (
                     <li key={item.id} className="list">
-                      <div className="box">
-                        <p>{item.foodName}</p>
-
-                        <p className="caloriesPTag" ref={child}>
-                          {item.foodCalories} {t("day_totals.calories")}
-                        </p>
+                      <div className="container12">
+                        <div className="box1">
+                          <p>{item.foodName}</p>
+                        </div>
+                        <div className="box2">
+                          <p className="caloriesPTag" ref={child}>
+                            {item.foodCalories} {t("day_totals.calories")}
+                          </p>
+                        </div>
+                        <div className="box4">
+                          <button
+                            type="submit"
+                            className="deleteBtn2"
+                            onClick={(e) => deleteEntry(e, item.id)}
+                          >
+                            <img
+                              src={require("../images/delete.jpg")}
+                              className="deleteImg2"
+                            />
+                          </button>
+                        </div>
                       </div>
-                      <p className="greyText">
-                        {item.foodWeight} {t("day_totals.grams")}
-                      </p>{" "}
-                      <button
-                        type="submit"
-                        className="deleteBtn2"
-                        onClick={(e) => deleteEntry(e, item.id)}
-                      >
-                        <img
-                          src={require("../images/delete.jpg")}
-                          className="deleteImg2"
-                        />
-                      </button>
+                      <div className="container13">
+                        <div className="box3">
+                          <p className="greyText">
+                            {item.foodWeight} {t("day_totals.grams")}
+                          </p>
+                        </div>
+                      </div>
                     </li>
                   );
                 }
               })
             : ""}
+        </div>
+        <hr className="double" />
+        <div className="container14">
+          <div className="box5">
+            <p>
+              <b>Всего:</b>
+            </p>
+          </div>
+          <div className="box6">
+            <p>
+              <b>{sum + " калорий"}</b>
+            </p>
+          </div>
         </div>
       </form>
     </Paper>

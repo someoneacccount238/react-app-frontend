@@ -19,11 +19,11 @@ body .container10 {
 .container10 {
   position: relative;
   width: 1920px !important;
-  height:1080px !important;
+  height: 1080px !important;
   left: 0 !important;
   right: 0 !important;
   top: 0 !important;
-  bottom:0 !important;
+  bottom: 0 !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -32,6 +32,6 @@ body .container10 {
 
 .loader {
   position: absolute;
-  top: 10rem; 
+  top: 10rem;
   margin: auto;
 }

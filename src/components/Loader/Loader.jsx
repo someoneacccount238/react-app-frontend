@@ -1,5 +1,5 @@
 import CustomSwitch from "../CustomSwitch/CustomSwitch.jsx";
-import "./Loader.css"
+import "./Loader.css";
 export default function Loader() {
   // <div class="loader"></div>;
   return (

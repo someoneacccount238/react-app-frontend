@@ -12,7 +12,6 @@ import { fetchRegister, selectIsAuth } from "../../redux/slices/auth";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-
 const Registration = () => {
   const [t, i18n] = useTranslation("global");
 
@@ -31,29 +30,28 @@ const Registration = () => {
     },
   });
 
- 
   const onSubmit = async (values) => {
     const data = await dispatch(fetchRegister(values));
-    console.log(data.payload)
-     if (!data.payload){
-      return alert("Signup failed")
+    console.log(data.payload);
+    if (!data.payload) {
+      return alert("Signup failed");
     }
-    if ('token' in data.payload) {
+    if ("token" in data.payload) {
       window.localStorage.setItem("token", data.payload.token);
-    } 
+    }
   };
 
-    // React.useEffect();
+  // React.useEffect();
   console.log(isAuth, "isAuth");
 
   if (isAuth) {
     return <Navigate to="/" />;
   }
- 
+
   return (
     <Paper className="root">
       <Typography className="title" variant="h5">
-       {t("signup.title")}
+        {t("signup.title")}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField

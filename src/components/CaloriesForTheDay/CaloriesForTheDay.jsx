@@ -27,7 +27,7 @@ import { Navigate } from "react-router-dom";
 
 import { fetchEntries } from "../../redux/slices/totals.js";
 import { selectIsAuth } from "../../redux/slices/auth.js";
- 
+
 const CaloriesForTheDay = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const date = searchParams.get("date");

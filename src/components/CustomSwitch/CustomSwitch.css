@@ -1,72 +1,67 @@
-.container6 {  
- width:100px !important;  
-  min-height: 50px !important;; 
+.container6 {
+  width: 100px !important;
+  min-height: 50px !important;
+}
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 50px 0;
+}
+.toggle-1 {
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 70px;
+  height: 35px;
+  background: rgb(185, 7, 7);
+  box-shadow: inset 3px 3px 6px rgba(180, 179, 179, 0.388);
 
-  } 
-  h1{
-    font-size:3rem;
-    text-align:center;
-    margin:50px 0;
-     
-  }
-  .toggle-1{
-    display:block;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width:70px;
-    height:35px;
-    background:rgb(185, 7, 7);
-    box-shadow:inset 3px 3px 6px rgba(180, 179, 179, 0.388);
-     
-    border-radius: 25px;
-    position:relative;
-    transition: all 0.5s;
-    margin:20px auto;
-     right:25rem;
-     top:-0.4rem;
-     position: absolute;
-     cursor:pointer;
-
-  }
-
-  .toggle-1:before{
-    content:"";
-    background: radial-gradient(white, #ccc, #e1e1e1);
-    height:35px;
-    width:35px;
-    position: absolute;
-    border-radius: 50%;
-     
-    top:0;
-    left:0;
-    transition: all 0.5s;
-z-index:2;
+  border-radius: 25px;
+  position: relative;
+  transition: all 0.5s;
+  margin: 20px auto;
+  right: 25rem;
+  top: -0.4rem;
+  position: absolute;
+  cursor: pointer;
 }
 
-.toggle-1:after{
-    content:"RU ";
-    position: absolute;
-     
-    font-size:1rem;
-    color:rgb(255, 255, 255);
-    font-weight:700;
-    top:50%;
-    left:55%;
-    transform:translate(20%,-50%);
-    z-index:1;
+.toggle-1:before {
+  content: "";
+  background: radial-gradient(white, #ccc, #e1e1e1);
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  border-radius: 50%;
 
-}
-.toggle-1:checked{
-background: rgb(4, 43, 121);
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+  z-index: 2;
 }
 
-.toggle-1:checked::before{
-    left:50%; 
+.toggle-1:after {
+  content: "RU ";
+  position: absolute;
+
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  top: 50%;
+  left: 55%;
+  transform: translate(20%, -50%);
+  z-index: 1;
 }
-.toggle-1:checked::after{
-content:"EN";
-left:10%;
-color:white;
+.toggle-1:checked {
+  background: rgb(4, 43, 121);
 }
 
+.toggle-1:checked::before {
+  left: 50%;
+}
+.toggle-1:checked::after {
+  content: "EN";
+  left: 10%;
+  color: white;
+}

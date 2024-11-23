@@ -3,9 +3,9 @@
   padding: 50px;
   border: 1px solid #dedede;
   margin: 50px auto;
-  
-  overflow-y :scroll;
-  overflow-x:  hidden !important;
+
+  overflow-y: scroll;
+  overflow-x: hidden !important;
 }
 
 .field {
@@ -23,39 +23,59 @@
   justify-content: center;
   margin-bottom: 30px;
 }
- .list{
-  display:flex !important; 
-  justify-content: space-between;
-
-  flex-shrink: 2;
-  
- }
- .deleteBtn2{
-  width:3em;
-  border:none;
-  background-color: white;;
-  cursor:pointer;
- }
- .container6{  
-  display: -webkit-flex;
+.list {
+  /* display: flex !important;
+  justify-content: space-between; */
+  list-style: none;
+}
+.deleteBtn2 {
+  width: 3em;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+.container6 {
+  /* display: -webkit-flex; */
   -webkit-flex-direction: row;
   -webkit-flex-wrap: wrap;
-  width: 400px;
+  width: 600px;
   height: auto;
   min-height: 200px;
- }
- .box { 
-  display:  flex !important;
-   align-items: center;
-   justify-content: space-between; 
-   width: 40%;
-   /* background: green; */
-   height: 30%;
- 
 }
-.caloriesPTag{
-  display:inline !important;
+.container12 {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 25rem !important;
+  /* background: green; */
+  height: 30%;
 }
-.box2{  
-  
+.container13 {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem !important;
+  /* background: green; */
+  height: 30%;
+}
+.container14 {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem !important;
+  /* background: green; */
+  height: 30%;
+}
+.caloriesPTag {
+  display: inline !important;
+}
+.box1 {
+  width: 20vw !important;
+}
+.box3 {
+  margin-top:-2rem !important;
+}
+.box6{
+  width: 7vw !important;
+
 }

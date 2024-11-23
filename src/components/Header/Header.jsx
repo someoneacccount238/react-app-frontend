@@ -1,12 +1,9 @@
 import "./Header.css";
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-
-
-export default function Header({name}) {
-  
-  const [t,i18n]=useTranslation("global")
+export default function Header({ name }) {
+  const [t, i18n] = useTranslation("global");
   return [
     <div className="cointainer2">
       <p className="label2">{t("calendar.subtitle")}</p>
@@ -38,7 +35,6 @@ export default function Header({name}) {
           />{" "}
         </figure>
       </div>{" "}
-      
     </div>,
   ];
 }

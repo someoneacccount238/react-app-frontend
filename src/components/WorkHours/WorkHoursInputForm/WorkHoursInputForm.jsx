@@ -5,8 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import "./WorkHoursInputForm.css";
-import WorkHoursInputForm2 from "../WorkHoursInputForm2/WorkHoursInputForm2.jsx"; 
-
+import WorkHoursInputForm2 from "../WorkHoursInputForm2/WorkHoursInputForm2.jsx";
 
 const style = {
   position: "absolute",
@@ -20,13 +19,15 @@ const style = {
   p: 4,
 };
 
-export default function WorkHoursInputForm(props ) {
+export default function WorkHoursInputForm(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false); 
+  const handleClose = () => setOpen(false);
   return (
     <div>
-      <Button onClick={handleOpen} disabled={props.disabled}>{props.workHours==" "? " ":props.workHours}</Button>
+      <Button onClick={handleOpen} disabled={props.disabled}>
+        {props.workHours == " " ? " " : props.workHours}
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -34,8 +35,7 @@ export default function WorkHoursInputForm(props ) {
         aria-describedby="modal-modal-description"
       >
         <Paper className="root containr">
-         <WorkHoursInputForm2 day={props.day}  date = {props.date}/>
-          
+          <WorkHoursInputForm2 day={props.day} date={props.date} />
         </Paper>
       </Modal>
     </div>

@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 import Loader from "../Loader/Loader.jsx";
 
 export default function Calendar() {
-   const [t, i18n] = useTranslation("global");
+  const [t, i18n] = useTranslation("global");
   const styles = {
     disabledButton: {
       backgroundColor: "gray",
@@ -64,7 +64,7 @@ export default function Calendar() {
       const userId = obj._id;
 
       let { data } = await axios.get(`/calendar/${userId}`);
- 
+
       // console.log(data);
 
       // console.log(data);
@@ -159,96 +159,102 @@ export default function Calendar() {
 
   // return !isLoading ? (
 
-  return  (
-    object1.length > 0 ? (
-      <div className="stripe stripe5">
-        <Header name={t("calendar.title")} />
-         
-        <hr className="double" />
-        <h3 className="label">{t("calendar.description")}</h3>
-        <div className="container7">
-          {object1.map((a) => (
-            <div className="dayAndCalories">
-              <h3>
-                {String(a.date).slice(0, 3)} {String(a.date).slice(8, 10)}
-              </h3>
-              {String(new Date(a.date).setHours(0, 0, 0, 0)) === String(now) ? (
-                <Link to="/food-calculator" className="link">
-                  <button className="circleBtn">
-                    <p className="bigPlusSign">
-                      {" "}
-                      {a.calories == 0 ? "+" : a.calories}
-                    </p>
-                    {/* find today entry if no entrie is found -- +  */}
-                  </button>
-                </Link>
-              ) : (
-                <button
-                  className="circleBtn"
-                  style={
-                    String(new Date(a.date).setHours(0, 0, 0, 0)) > String(now)
-                      ? styles.disabledButton
-                      : styles.enabledButton
-                  }
-                >
-                  <InputModal
-                    calories={a.calories}
-                    date={a.date}
-                    disabled={
-                      String(new Date(a.date).setHours(0, 0, 0, 0)) >
-                      String(now)
-                    }
-                  ></InputModal>
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-        {/* <JumpingBanner /> */}
-      </div>
-    ) : (
-      <div className="stripe">
-        <Header name={t("calendar.title")} /> 
-        <hr className="double" />
-        <h3 className="label">{t("calendar.description")}</h3>
-        <div className="container7">
-          {emptyWeek.map((a) => (
-            <div className="dayAndCalories">
-              <h3>
-                {String(a).substring(0, 3)} {String(a).substring(8, 10)}
-              </h3>
+  var options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
 
-              {String(new Date(a).setHours(0, 0, 0, 0)) === String(now) ? (
-                <Link to="/food-calculator">
-                  <button className="circleBtn">
-                    +{/* find today entry if no entrie is found -- +  */}
-                  </button>
-                </Link>
-              ) : (
-                <button
-                  className="circleBtn"
-                  style={
-                    String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
-                      ? styles.disabledButton
-                      : styles.enabledButton
-                  }
-                >
-                  <InputModal
-                    calories=" "
-                    date={a}
-                    disabled={
-                      String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
-                    }
-                  ></InputModal>
+  var days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+  return object1.length > 0 ? (
+    <div className="stripe stripe5">
+      <Header name={t("calendar.title")} />
+
+      <hr className="double" />
+      <h3 className="label">{t("calendar.description")}</h3>
+      <div className="container7">
+        {object1.map((a, index) => (
+          <div className="dayAndCalories">
+            <h3>
+              {days[index % 7] + " "}
+              {String(a.date).slice(8, 10)}
+            </h3>
+            {String(new Date(a.date).setHours(0, 0, 0, 0)) === String(now) ? (
+              <Link to="/food-calculator" className="link">
+                <button className="circleBtn">
+                  <p className="bigPlusSign">
+                    {" "}
+                    {a.calories == 0 ? "+" : a.calories}
+                  </p>
+                  {/* find today entry if no entrie is found -- +  */}
                 </button>
-              )}
-            </div>
-          ))}
-        </div>
-        {/* <JumpingBanner /> */}
+              </Link>
+            ) : (
+              <button
+                className="circleBtn"
+                style={
+                  String(new Date(a.date).setHours(0, 0, 0, 0)) > String(now)
+                    ? styles.disabledButton
+                    : styles.enabledButton
+                }
+              >
+                <InputModal
+                  calories={a.calories}
+                  date={a.date}
+                  disabled={
+                    String(new Date(a.date).setHours(0, 0, 0, 0)) > String(now)
+                  }
+                ></InputModal>
+              </button>
+            )}
+          </div>
+        ))}
       </div>
-    )
-  )  
+      {/* <JumpingBanner /> */}
+    </div>
+  ) : (
+    <div className="stripe">
+      <Header name={t("calendar.title")} />
+      <hr className="double" />
+      <h3 className="label">{t("calendar.description")}</h3>
+      <div className="container7">
+        {emptyWeek.map((a) => (
+          <div className="dayAndCalories">
+            <h3>
+              {String(a).substring(0, 3)} {String(a).substring(8, 10)}
+            </h3>
+
+            {String(new Date(a).setHours(0, 0, 0, 0)) === String(now) ? (
+              <Link to="/food-calculator">
+                <button className="circleBtn">
+                  +{/* find today entry if no entrie is found -- +  */}
+                </button>
+              </Link>
+            ) : (
+              <button
+                className="circleBtn"
+                style={
+                  String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
+                    ? styles.disabledButton
+                    : styles.enabledButton
+                }
+              >
+                <InputModal
+                  calories=" "
+                  date={a}
+                  disabled={
+                    String(new Date(a).setHours(0, 0, 0, 0)) > String(now)
+                  }
+                ></InputModal>
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+      {/* <JumpingBanner /> */}
+    </div>
+  );
   //   <Loader />
   // );
 }
