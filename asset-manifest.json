@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/react-app-frontend/static/css/main.78cb5f07.css",
-    "main.js": "/react-app-frontend/static/js/main.ed959396.js",
-    "static/js/453.2a82e7ac.chunk.js": "/react-app-frontend/static/js/453.2a82e7ac.chunk.js",
+    "main.css": "/react-app-frontend/static/css/main.1e9aa5d8.css",
+    "main.js": "/react-app-frontend/static/js/main.6c066cfd.js",
+    "static/js/453.cfd59cba.chunk.js": "/react-app-frontend/static/js/453.cfd59cba.chunk.js",
     "static/media/picture1.jpg": "/react-app-frontend/static/media/picture1.7b2e76332a0d27972346.jpg",
+    "static/media/loader1.gif": "/react-app-frontend/static/media/loader1.b1881fe82d3770d5218d.gif",
     "static/media/logo.svg": "/react-app-frontend/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/react-app-frontend/index.html",
-    "main.78cb5f07.css.map": "/react-app-frontend/static/css/main.78cb5f07.css.map",
-    "main.ed959396.js.map": "/react-app-frontend/static/js/main.ed959396.js.map",
-    "453.2a82e7ac.chunk.js.map": "/react-app-frontend/static/js/453.2a82e7ac.chunk.js.map"
+    "main.1e9aa5d8.css.map": "/react-app-frontend/static/css/main.1e9aa5d8.css.map",
+    "main.6c066cfd.js.map": "/react-app-frontend/static/js/main.6c066cfd.js.map",
+    "453.cfd59cba.chunk.js.map": "/react-app-frontend/static/js/453.cfd59cba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.78cb5f07.css",
-    "static/js/main.ed959396.js"
+    "static/css/main.1e9aa5d8.css",
+    "static/js/main.6c066cfd.js"
   ]
 }
