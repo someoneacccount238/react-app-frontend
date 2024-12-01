@@ -9,7 +9,7 @@ export default function FoodCalculator() {
   const [t, i18n] = useTranslation("global");
   return [
     <div className="stripe">
-      <Header name="Food Calculator" />
+      <Header name={t("food_calculator.title")}/>
       <hr className="double" />
       <h3 className="label">{t("food_calculator.description")}</h3>
 

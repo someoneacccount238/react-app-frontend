@@ -4,13 +4,13 @@ import Input from "@mui/material/Input";
 import "./AddingNewItemForm.css";
 import { jwtDecode } from "jwt-decode";
 import axios from "../../axios.js";
-
+ 
 import "./AddingNewItemForm.css";
 
 const shortid = require("shortid");
-
-let obj1 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food`);
-let obj2 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food2`);
+ 
+// let obj1 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food`);
+// let obj2 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food2`);
 
 export default class Form extends Component {
   state = {
@@ -19,12 +19,12 @@ export default class Form extends Component {
     calorie: "",
     foodName: "",
   };
-
+  
   inputRef = createRef();
   inputRef2 = createRef();
 
-  data1 = obj1.data;
-  data2 = obj2.data;
+  // data1 = obj1.data;
+  // data2 = obj2.data;
 
   writeToJson = () => {
     const fields = {
@@ -45,6 +45,8 @@ export default class Form extends Component {
         var newArr = new Array(...jsonArray, fields);
       }
     } else var newArr = fields;
+
+    // console.log(newArr)
 
     window.localStorage.setItem("NEW_FOOD_ITEMS", JSON.stringify(newArr));
   };
@@ -96,7 +98,7 @@ export default class Form extends Component {
           <table className="table">
             <tr>
               <td>
-                <h3 className="foodLabel">Food name:</h3>
+                <h3 className="foodLabel">Имя продукта:</h3>
               </td>
               <td>
                 <input
@@ -110,7 +112,7 @@ export default class Form extends Component {
             </tr>
             <tr>
               <td>
-                <h3 className="caloriesLabel">Calories:</h3>
+                <h3 className="caloriesLabel">Калории:</h3>
               </td>
               <td>
                 <input
@@ -127,10 +129,10 @@ export default class Form extends Component {
           </table>
           <div className="buttons">
             <button onSubmit={this.handleSubmit} className="btnSave">
-              Save
+              Сохранить
             </button>
-            <button onClick={this.toggleChange} className="btnCancel">
-              Cancel
+            <button onClick={this.toggleChange} className="btnCancel1">
+             Отменить
             </button>
           </div>
         </form>

@@ -49,7 +49,8 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   margin-top: -1px;
-  max-height: 30vw;
+  max-height: 20vw !important;
+  height: 20vw !important;
   overflow-y: auto;
   position: absolute;
   top: 100%;
@@ -79,4 +80,7 @@
 /* Dotted red border */
 hr.new3 {
   border-top: 1px dotted grey;
+}
+.task{
+  margin-left:-2em;
 }

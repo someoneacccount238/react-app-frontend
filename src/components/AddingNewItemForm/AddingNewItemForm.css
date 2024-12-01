@@ -60,13 +60,15 @@
 }
 .form-control {
   position: absolute;
-  top: -5vw;
+  top: -4vw;
   left: 10vw;
 }
 .form-control2 {
   position: absolute;
-  top: -2vw;
+  margin-top: 1vw;
   left: 10vw;
+  height:30px;
+  width:195px;
 }
 .foodLabel {
   top: -5vw;
@@ -82,4 +84,30 @@
 .table1 {
   position: absolute;
   top: 20vw;
+}
+
+.btnCancel1 {
+  position: absolute !important;
+  top: 12em !important;
+  margin-left: 13rem !important;
+  border: none;
+  width: 5em;
+  height:50px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.btnSave {
+  position: absolute !important;
+ margin-top: -0rem !important;
+ margin-left: -6rem !important;
+  border: none;
+  width: 5em;
+  
+  font-size:18px;
+  cursor:pointer;
+}
+.hrForm{
+  width:400px;
+  margin-left:0;
 }

@@ -37,15 +37,24 @@ export default function WorkHoursTracker() {
   let emptyWeek = [];
   let curr = new Date();
   //is displayed when no data entries present
-  for (let i = 1; i <= 7; i++) {
-    //число = число - (понедельник) - день недели
-    let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
+
+  
+  for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+    let first;
+    console.log(curr.getDay());
+    if (curr.getDay() == 0) {
+      first = curr.getDate() - n + i;
+    } else {
+      first = curr.getDate() - curr.getDay() + i;
+    }
+    console.log("first");
+
+    // console.log(curr.getDay());
 
     let day = new Date(curr.setDate(first));
-
-    //date
     emptyWeek = [...emptyWeek, day];
   }
+
 
   const [object1, setObject] = useState([]);
   let week = [];
@@ -53,21 +62,27 @@ export default function WorkHoursTracker() {
   const getDateEntries = async () => {
     let curr = new Date();
     //last week
-    for (let i = 1; i <= 7; i++) {
-      let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
+    for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+      let first;
+      console.log("curr get day");
+
+      console.log(curr.getDate());
+
+      if (curr.getDay() == 0) {
+        first = curr.getDate() - n + i;
+      } else {
+        first = curr.getDate() - curr.getDay() + i;
+      }
 
       let day = new Date(curr.setDate(first));
       week = [...week, day];
     }
-
     if (window.localStorage.getItem("token")) {
       const obj = jwtDecode(window.localStorage.getItem("token"));
       const userId = obj._id;
 
       let { data } = await axios.get(`/work/${userId}`);
-      console.log(data);
 
-      // console.log(data);
       if (data.length > 0) {
         var now = new Date();
         var sortedDates = [];
@@ -82,8 +97,6 @@ export default function WorkHoursTracker() {
         });
 
         data.sort((a, b) => a.date - b.date); // b - a for reverse sort
-        // console.log(data);
-
         var d = new Date(data[0].date);
 
         for (d; d <= now; d.setDate(d.getDate() + 1)) {
@@ -93,14 +106,18 @@ export default function WorkHoursTracker() {
         let curr = sortedDates[0];
         var sortedArrayWithStartOfWeek = [];
 
-        for (let i = 1; i <= 7; i++) {
-          let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
-
+        for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+          let first;
+          if (curr.getDay() == 0) {
+            first = curr.getDate() - n + i;
+          } else {
+            first = curr.getDate() - curr.getDay() + i;
+          }
           let day = new Date(curr.setDate(first));
           sortedArrayWithStartOfWeek = [...sortedArrayWithStartOfWeek, day];
         }
 
-        // console.log(sortedArrayWithStartOfWeek)
+        console.log(sortedArrayWithStartOfWeek)
 
         // обьединить week и sortedDates
         const merge = (a, b, predicate = (a, b) => a === b) => {

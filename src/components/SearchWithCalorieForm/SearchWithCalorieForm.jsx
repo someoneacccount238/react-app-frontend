@@ -5,10 +5,18 @@ import axios from "axios";
 
 import React, { useState } from "react";
 
-let obj1 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food`);
-let obj2 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food2`);
-let obj3 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food3`);
-let obj4 = await axios.get(`https://react-app-backend-ten.vercel.app` + `/food4`);
+let obj1 = await axios.get(
+  `https://react-app-backend-ten.vercel.app` + `/food`
+);
+let obj2 = await axios.get(
+  `https://react-app-backend-ten.vercel.app` + `/food2`
+);
+let obj3 = await axios.get(
+  `https://react-app-backend-ten.vercel.app` + `/food3`
+);
+let obj4 = await axios.get(
+  `https://react-app-backend-ten.vercel.app` + `/food4`
+);
 
 export default function SearchWithCalorieForm() {
   var data1, data2;
@@ -37,10 +45,11 @@ export default function SearchWithCalorieForm() {
   var newFoodItem = window.localStorage.getItem("NEW_FOOD_ITEMS");
   let jsonArray = JSON.parse(newFoodItem);
 
-  if (Array.isArray(jsonArray)) {
-    for (var item3 in jsonArray)
-      foodsArray.push([jsonArray[item3].name, jsonArray[item3].energy]);
-  } else foodsArray.push([jsonArray.name, jsonArray.energy]);
+  if (jsonArray)
+    if (Array.isArray(jsonArray)) {
+      for (var item3 in jsonArray)
+        foodsArray.push([jsonArray[item3].name, jsonArray[item3].energy]);
+    } else foodsArray.push([jsonArray.name, jsonArray.energy]);
 
   foodsArray.sort((a, b) => a[0] - b[0]);
 

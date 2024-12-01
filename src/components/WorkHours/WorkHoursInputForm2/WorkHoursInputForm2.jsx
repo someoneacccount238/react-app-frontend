@@ -33,14 +33,14 @@ class WorkHoursInputForm2 extends Component {
           <table className="table">
             <thead>
               <tr>
-                <th>Meal</th>
-                <th>workHours</th>
+                <th>Прием пищи</th>
+                <th>Рабочие часы</th>
                 <th />
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Total:</td>
+                <td>Всего:</td>
                 <td>
                   <span role="img">🍎</span>
                   {this.state.meals.reduce(

@@ -28,7 +28,14 @@
     "calories": "calories",
     "add_btn": "+ ADD TO MY TOTALS",
     "added_btn": "✔ Added to My Totals",
-    "view": "View My Totals (N items)"
+    "view": "View My Totals (N items)",
+    "add_item": "Add new item"
+  },
+  "form": {
+    "foodName": "Food name:",
+    "calories": "Calories:",
+    "save": "Save",
+    "cancel": "Cancel"
   },
   "day_totals": {
     "title": "My Totals",
@@ -37,7 +44,8 @@
   },
   "signup": {
     "title": "Sign up",
-    "pwd": "Password *"
+    "pwd": "Password *",
+    "no-success": "Signup failed"
   },
   "login": {
     "title": "Log in",

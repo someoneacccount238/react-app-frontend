@@ -38,11 +38,20 @@ export default function Calendar() {
   let emptyWeek = [];
   let curr = new Date();
   //is displayed when no data entries present
-  for (let i = 1; i <= 7; i++) {
-    //число = число - (понедельник) - день недели
-    let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
+
+  for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+    let first;
+    console.log(curr.getDay());
+    if (curr.getDay() == 0) {
+      first = curr.getDate() - n + i;
+    } else {
+      first = curr.getDate() - curr.getDay() + i;
+    }
+    console.log("first");
+
+    // console.log(curr.getDay());
+
     let day = new Date(curr.setDate(first));
-    //date
     emptyWeek = [...emptyWeek, day];
   }
 
@@ -52,8 +61,17 @@ export default function Calendar() {
   const getDateEntries = async () => {
     let curr = new Date();
     //last week
-    for (let i = 1; i <= 7; i++) {
-      let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
+    for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+      let first;
+      console.log("curr get day");
+
+      console.log(curr.getDate());
+
+      if (curr.getDay() == 0) {
+        first = curr.getDate() - n + i;
+      } else {
+        first = curr.getDate() - curr.getDay() + i;
+      }
 
       let day = new Date(curr.setDate(first));
       week = [...week, day];
@@ -65,9 +83,6 @@ export default function Calendar() {
 
       let { data } = await axios.get(`/calendar/${userId}`);
 
-      // console.log(data);
-
-      // console.log(data);
       if (data.length > 0) {
         var now = new Date();
         var sortedDates = [];
@@ -93,9 +108,13 @@ export default function Calendar() {
         let curr = sortedDates[0];
         var sortedArrayWithStartOfWeek = [];
 
-        for (let i = 1; i <= 7; i++) {
-          let first = curr.getDate() - 1 - curr.getDay() + 1 + i;
-
+        for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+          let first;
+          if (curr.getDay() == 0) {
+            first = curr.getDate() - n + i;
+          } else {
+            first = curr.getDate() - curr.getDay() + i;
+          }
           let day = new Date(curr.setDate(first));
           sortedArrayWithStartOfWeek = [...sortedArrayWithStartOfWeek, day];
         }
@@ -144,6 +163,7 @@ export default function Calendar() {
       }
     }
   };
+
   var now = new Date().setHours(0, 0, 0, 0);
 
   React.useEffect(() => getDateEntries(), []);
@@ -219,10 +239,11 @@ export default function Calendar() {
       <hr className="double" />
       <h3 className="label">{t("calendar.description")}</h3>
       <div className="container7">
-        {emptyWeek.map((a) => (
+        {emptyWeek.map((a, index) => (
           <div className="dayAndCalories">
             <h3>
-              {String(a).substring(0, 3)} {String(a).substring(8, 10)}
+              {days[index % 7] + " "}
+              {String(a).substring(8, 10)}
             </h3>
 
             {String(new Date(a).setHours(0, 0, 0, 0)) === String(now) ? (

@@ -21,12 +21,7 @@ const Login = () => {
     handleSubmit,
     setError,
     formState: { errors, isValid },
-  } = useForm({
-    defaultValues: {
-      email: "test@gmail.com",
-      password: "123456",
-    },
-  });
+  } = useForm( );
 
   const onSubmit = async (values) => {
     const data = await dispatch(fetchAuth(values));
@@ -54,17 +49,16 @@ const Login = () => {
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
           {...register("email", { required: "Enter email" })}
-          fullWidth
-          type="email"
+          fullWidth 
         />
         <TextField
           className="field"
           label={t("login.pwd")}
           error={Boolean(errors.password?.message)}
           {...register("password", { required: "Enter password" })}
-          helperText={errors.password?.message}
-          type="password"
+          helperText={errors.password?.message} 
           fullWidth
+          type="password"
         />
         <Button size="large" variant="contained" type="submit" fullWidth>
           {t("login.title")}

@@ -67,10 +67,9 @@ export default class Form extends Component {
     //   } else {
     return (
       <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group3"></div>
+        <form onSubmit={this.handleSubmit}> 
           <div className="form-group3">
-            <h3 className="caloriesLabel2">Calories:</h3>
+            <h3 className="caloriesLabel2">Калории:</h3>
             <input
               name="calorie"
               value={this.state.calorie}
@@ -81,10 +80,10 @@ export default class Form extends Component {
             />
           </div>
           <button onSubmit={this.handleSubmit} className="btnSave2">
-            Save
+            Сохранить
           </button>
           <button onClick={this.toggleChange} className="btnCancel2">
-            Cancel
+            Отменить
           </button>
         </form>
       </React.Fragment>

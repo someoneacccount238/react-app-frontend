@@ -6,6 +6,8 @@ import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import "./AddingNewItemModal.css";
 import AddingNewItemForm from "../AddingNewItemForm/AddingNewItemForm.js";
+import { useTranslation } from "react-i18next";
+
 
 const style = {
   position: "absolute",
@@ -20,13 +22,15 @@ const style = {
 };
 
 export default function AddingNewItemModal(props) {
+  const [t, i18n] = useTranslation("global");
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <div>
       <Button onClick={handleOpen} className="addNewItem">
-        <h3>add new item</h3>
+        <h3>{t("food_calculator.add_item")}</h3>
       </Button>
       <Modal
         open={open}

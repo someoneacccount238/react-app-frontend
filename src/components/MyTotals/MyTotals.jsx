@@ -69,7 +69,6 @@ const MyTotals = () => {
   };
 
   const deleteEntry = (event, id) => {
-    // hideEntry(true)
     event.preventDefault();
 
     var getItems = window.localStorage.getItem("MY_TOTALS_FOOD_ENTRIES");
@@ -137,22 +136,16 @@ const MyTotals = () => {
       if (data.length == 0) {
         const { data } = await axios.post("/calendar/add", fields);
       }
-
-      console.log(data);
-
       if (data) {
         // for (let item in data) {
         //update
         const { data2 } = await axios.post(`/calendar/${now}`, fields);
-        console.log(data2);
       }
 
       //if entries are found, find entries of today, and update them
     }
     setSum(sum);
-    console.log("run savetotalcalories");
   };
-  // saveTotalCalories();
   const child = useRef();
 
   return (

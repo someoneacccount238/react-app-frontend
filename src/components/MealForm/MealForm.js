@@ -25,22 +25,22 @@ class MealForm extends Component {
       <div className="container4">
         <div className="jumbotron">
           <h2>
-            Calories for {String(this.props.date).slice(0, 3)}{" "}
+            Калории за {String(this.props.date).slice(0, 3)}{" "}
             {String(this.props.date).slice(8, 10)}
           </h2>
-          <hr />
+          <hr className="hrForm"/>
           <Form onsubmit={this.addMeal} date={this.props.date} />
           <table className="table">
             <thead>
               <tr>
-                <th>Meal</th>
-                <th>Calories</th>
+                <th>Прием пищи</th>
+                <th>Калории</th>
                 <th />
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Total:</td>
+                <td>Всего:</td>
                 <td>
                   <span role="img">🍎</span>
                   {this.state.meals.reduce(

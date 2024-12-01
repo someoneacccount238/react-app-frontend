@@ -19,6 +19,9 @@
   top: 12em;
   left: 10em !important;
   border: none;
+  height:50px;
+  font-size:18px;
+  cursor:pointer;
 }
 
 .btnCancel {
@@ -27,26 +30,43 @@
   left: 15em !important;
   border: none;
   width: 5em;
+  height:50px;
+  font-size:18px;
+  cursor:pointer;
 }
+
 .table {
   position: absolute !important;
   top: 10em !important;
-  left: 1em !important;
-}
-.foodLabel {
+  margin-left: -1rem !important;
 }
 .btnSave2 {
   position: absolute !important;
-  top: 25em;
-  left: 10em !important;
+  margin-top: -12rem !important;
+ margin-left: -7rem !important;
   border: none;
-  width: 5em;
+  width: 6em;
+  height:50px;
+  font-size:18px;
+  cursor:pointer;
 }
 
 .btnCancel2 {
   position: absolute !important;
-  top: 25em !important;
+  margin-top: -12rem !important;
   left: 15em !important;
+  margin-left: -4rem !important;
+
   border: none;
-  width: 5em;
+  width: 6em;
+  height:50px;
+  font-size:18px;
+  cursor:pointer;
+}
+.form-control2{
+ margin-top:8rem;
+}
+.hrForm{
+  width:400px;
+  margin-left:0;
 }

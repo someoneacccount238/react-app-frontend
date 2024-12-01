@@ -24,8 +24,8 @@ class AddingNewItemForm extends Component {
     return (
       <div className="container3">
         <div className="jumbotron">
-          <h2>New Food</h2>
-          <hr />
+          <h2>Новый продукт</h2>
+          <hr className="hrForm"/>
           <Form onsubmit={this.addMeal} date={this.props.date} />
         </div>
       </div>

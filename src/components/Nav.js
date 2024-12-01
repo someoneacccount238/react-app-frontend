@@ -93,11 +93,11 @@ export default function Nav() {
                 {t("nav.day_totals")}
               </Button>
             </Link>
-            <Link to="/work-tracker">
+            {/* <Link to="/work-tracker">
               <Button className={classes.loginBtn} color="inherit">
                 {t("nav.work_tracker")}
               </Button>
-            </Link>
+            </Link> */}
             {/* <CustomSwitch></CustomSwitch> */}
             {isAuth && <a className={classes.push} label={""} />}
             {isAuth && (
@@ -152,11 +152,11 @@ export default function Nav() {
                 {t("nav.day_totals")}
               </Button>
             </Link>
-            <Link to="/login">
+            {/* <Link to="/login">
               <Button className={classes.loginBtn} color="inherit">
                 {t("nav.work_tracker")}
               </Button>
-            </Link>
+            </Link> */}
             {/* <CustomSwitch></CustomSwitch> */}
             {isAuth && <a className={classes.push} label={""} />}
             {isAuth && (

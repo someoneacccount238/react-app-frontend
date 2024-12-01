@@ -27,8 +27,6 @@ export default class Form extends Component {
   };
 
   handleSubmit = async (event) => {
-    console.log(Number(this.state.workHours));
-
     event.preventDefault();
     this.props.onsubmit({
       id: shortid.generate(),
@@ -45,10 +43,7 @@ export default class Form extends Component {
         date: this.props.date,
         user_id: userId,
       };
-      console.log(fields);
       const { data } = await axios.post("/work/add", fields);
-
-      // console.log(data);
 
       this.setState({
         text: "",

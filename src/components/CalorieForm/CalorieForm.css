@@ -19,7 +19,7 @@
   /* position: fixed;
   top: 32.5vw;
   left: 38vw; */
-  flex:1;
+  flex: 1;
 }
 .consumed {
   /* position: fixed; */
@@ -33,11 +33,12 @@
 
   grid-template-rows: repeat(5, 5em);
   grid-auto-rows: 100px !important;
- 
+
   /* justify-content: space-evenly;
   align-content: space-evenly; */
   text-align: center !important;
 
+  margin-top: -5rem !important;
 }
 
 .box1 {
@@ -52,7 +53,6 @@
   grid-column-end: 2 !important;
   grid-row-start: 2 !important;
   grid-row-end: 3 !important;
-
 }
 
 .card {
@@ -65,13 +65,13 @@
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  position:relative; 
+  position: relative;
 }
 
 .crossSign {
-  top:0vw !important ;
+  top: 0vw !important ;
 
-  left: 12vw;
+  left: 11vw;
   position: absolute !important;
 
   cursor: pointer;
@@ -103,7 +103,9 @@
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  display:flex !important; 
+  display: flex !important;
+  align-items: end !important;
+  justify-content: space-between !important;
 }
 .box555 {
   grid-column-start: 1;
@@ -112,7 +114,6 @@
   grid-row-end: 6;
   width: 100%;
   text-align: end !important;
-
 }
 .box55 {
   grid-column-start: 2;
@@ -121,25 +122,51 @@
   grid-row-end: 6;
 }
 .box77 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-start: 4;
+  grid-column-end: 5;
   grid-row-start: 5;
   grid-row-end: 6;
-  position: absolute !important;
-  top: 2em !important;
+  display:flex !important;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* min-height: 100vh;
+
+  gap: 15px; */
+  margin-top:-2em;
 }
 
 .calorieDiv {
   background-color: #e9fbeb;
-   /* top: 39vw;
+  /* top: 39vw;
   left: 35vw; */
   height: 50px;
-  font-size:36px !important; 
+  font-size: 36px !important;
 
   grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-end: 4;
   grid-row-start: 5;
   grid-row-end: 6;
+  align-items: start !important;
+  display: flex;
+  justify-content: center;
+  width:230px;
+}
+
+.caloriePTag{
+  margin-left:0rem;
+
+}
+
+.box16 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  display: flex;
+
+  align-items: start !important;
 }
 
 .icon {

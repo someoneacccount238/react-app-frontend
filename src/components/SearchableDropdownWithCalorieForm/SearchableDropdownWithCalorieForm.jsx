@@ -117,23 +117,30 @@ const SearchableDropdownWithCalorieForm = ({
   const child2 = useRef();
 
   const [isActive, setActive] = useState(false);
+  const [num, setNum] = useState(0);
 
   const submit = () => {
     changeBtnName(t("food_calculator.added_btn"));
     makeBtnUnactive();
-    onSubmit();
+        onSubmit();
     saveTotalCalories();
+    numOfItemsInLocalStorage();
   };
   const makeBtnUnactive = () => {
     setActive(!isActive);
   };
+
+  const makeBtnUnactive1 = () => {
+    setActive(false);
+  };
+
 
   const crossSignClose = () => {
     hideBanner(false);
     setClicked(false);
     setCalculateBlock(false);
     changeBtnName(t("food_calculator.add_btn"));
-    makeBtnUnactive();
+    makeBtnUnactive1();
   };
   const onSubmit = () => {
     const foodName = getDisplayValue();
@@ -208,20 +215,30 @@ const SearchableDropdownWithCalorieForm = ({
       if (data.length == 0) {
         const { data } = await axios.post("/calendar/add", fields);
       }
-      // console.log("data");
-
-      // console.log(data);
 
       if (data) {
         // for (let item in data) {
         //update
         const { data2 } = await axios.post(`/calendar/${now}`, fields);
-        // console.log(data2);
       }
 
       //if entries are found, find entries of today, and update them
     }
   };
+
+  const numOfItemsInLocalStorage = () => {
+    let number = 0;
+    var getItems = window.localStorage.getItem("MY_TOTALS_FOOD_ENTRIES");
+
+    let jsonArray1 = JSON.parse(getItems);
+
+    if (jsonArray1) for (let i = 0; i < jsonArray1.length; i++) number += 1;
+    setNum(number);
+  };
+
+  useEffect(() => {
+    numOfItemsInLocalStorage();
+  }, num);
 
   const countCalories = (e) => {
     e.preventDefault();
@@ -242,7 +259,7 @@ const SearchableDropdownWithCalorieForm = ({
   if (!clicked)
     return (
       <div className="dropdown">
-        <h3>{t("food_calculator.task")}</h3>
+        <h3 className="task">{t("food_calculator.task")}</h3>
         <div className="control">
           <div className="selected-value">
             <input
@@ -306,8 +323,10 @@ const SearchableDropdownWithCalorieForm = ({
             <input className="inpt" type="number" ref={child2} />
           </div>
           <div>
-            <p className="grams">{t("food_calculator.grams")}</p>
+            <p className="grams">{"  " + t("food_calculator.grams")}</p>
           </div>
+        </div>
+        <div className="box16">
           <img src={require("../images/hand.jpg")} className="icon" />
         </div>
         {!calculateBlock && (
@@ -322,21 +341,18 @@ const SearchableDropdownWithCalorieForm = ({
           </div>
         )}
         {/* <hr className="new3" />  */}
-
         {calculateBlock && [
           <div className="box555">
             <h3 className="consumed"> {t("food_calculator.youve_consumed")}</h3>
           </div>,
 
           <div className="calorieDiv">
-            <p>
-              {Math.round(sum)}{" "}
-              <p className="calories">{t("food_calculator.calories")}</p>
+            <p className="caloriePTag">
+              {Math.round(sum)} {t("food_calculator.calories")}
             </p>
           </div>,
 
           <div className="box77">
-            {/* <Link to="/my-totals"> */}
             <Button
               variant="contained"
               className={!isActive ? classes.addBtn : classes.addedBtn}
@@ -345,7 +361,9 @@ const SearchableDropdownWithCalorieForm = ({
             >
               {btnName}
             </Button>
-            <a>{t("food_calculator.view")}</a>
+            <Link to="/my-totals">
+              <Button> Посмотреть мои итоги ({num} продуктов)</Button>
+            </Link>
           </div>,
         ]}
       </div>
