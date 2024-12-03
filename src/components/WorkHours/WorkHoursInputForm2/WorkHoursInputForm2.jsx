@@ -40,7 +40,7 @@ class WorkHoursInputForm2 extends Component {
             </thead>
             <tbody>
               <tr>
-                <td>Всего:</td>
+                <td>Total:</td>
                 <td>
                   <span role="img">🍎</span>
                   {this.state.meals.reduce(

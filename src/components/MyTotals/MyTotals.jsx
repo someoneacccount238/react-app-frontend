@@ -199,12 +199,12 @@ const MyTotals = () => {
         <div className="container14">
           <div className="box5">
             <p>
-              <b>Всего:</b>
+              <b>Total:</b>
             </p>
           </div>
           <div className="box6">
             <p>
-              <b>{sum + " калорий"}</b>
+              <b>{sum + " calories"}</b>
             </p>
           </div>
         </div>

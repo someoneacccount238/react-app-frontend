@@ -362,7 +362,7 @@ const SearchableDropdownWithCalorieForm = ({
               {btnName}
             </Button>
             <Link to="/my-totals">
-              <Button> Посмотреть мои итоги ({num} продуктов)</Button>
+              <Button> Go to my totals ({num} items)</Button>
             </Link>
           </div>,
         ]}

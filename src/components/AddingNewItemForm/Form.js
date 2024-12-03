@@ -112,7 +112,7 @@ export default class Form extends Component {
             </tr>
             <tr>
               <td>
-                <h3 className="caloriesLabel">Калории:</h3>
+                <h3 className="caloriesLabel">Calories:</h3>
               </td>
               <td>
                 <input

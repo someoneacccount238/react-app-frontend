@@ -69,7 +69,7 @@ export default class Form extends Component {
       <React.Fragment>
         <form onSubmit={this.handleSubmit}> 
           <div className="form-group3">
-            <h3 className="caloriesLabel2">Калории:</h3>
+            <h3 className="caloriesLabel2">Calories:</h3>
             <input
               name="calorie"
               value={this.state.calorie}
@@ -80,10 +80,10 @@ export default class Form extends Component {
             />
           </div>
           <button onSubmit={this.handleSubmit} className="btnSave2">
-            Сохранить
+            Save
           </button>
           <button onClick={this.toggleChange} className="btnCancel2">
-            Отменить
+            Cancel
           </button>
         </form>
       </React.Fragment>

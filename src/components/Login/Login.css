@@ -3,6 +3,8 @@
   padding: 50px;
   border: 1px solid #dedede;
   margin: 50px auto;
+  overflow-y: hidden !important;
+
 }
 
 .field {
@@ -13,4 +15,9 @@
   text-align: center !important;
   font-weight: bold !important;
   margin-bottom: 30px !important;
+}
+.question{
+  display: flex;
+  justify-content:center;
+  margin-top:10px;
 }

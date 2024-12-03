@@ -42,7 +42,7 @@ export default function App() {
 
   i18next.init({
     interpolation: { escapeValue: false },
-    lng: "ru",
+    lng: "en",
     resources: {
       en: {
         global: global_en,

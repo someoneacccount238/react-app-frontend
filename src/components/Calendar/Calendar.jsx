@@ -41,15 +41,11 @@ export default function Calendar() {
 
   for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
     let first;
-    console.log(curr.getDay());
     if (curr.getDay() == 0) {
       first = curr.getDate() - n + i;
     } else {
       first = curr.getDate() - curr.getDay() + i;
     }
-    console.log("first");
-
-    // console.log(curr.getDay());
 
     let day = new Date(curr.setDate(first));
     emptyWeek = [...emptyWeek, day];
@@ -60,13 +56,9 @@ export default function Calendar() {
 
   const getDateEntries = async () => {
     let curr = new Date();
-    //last week
+    //current week
     for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
       let first;
-      console.log("curr get day");
-
-      console.log(curr.getDate());
-
       if (curr.getDay() == 0) {
         first = curr.getDate() - n + i;
       } else {
@@ -74,6 +66,7 @@ export default function Calendar() {
       }
 
       let day = new Date(curr.setDate(first));
+
       week = [...week, day];
     }
 
@@ -87,17 +80,8 @@ export default function Calendar() {
         var now = new Date();
         var sortedDates = [];
         let myArray = [];
-        var yearAgo = new Date("2023-11-04");
 
-        data = data.filter((item) => {
-          return (
-            new Date(item.date).getTime() >= yearAgo.getTime() &&
-            new Date(item.date).getTime() <= now.getTime()
-          );
-        });
-
-        data.sort((a, b) => a.date - b.date); // b - a for reverse sort
-        // console.log(data);
+        data.sort((a, b) => a.date - b.date);
 
         var d = new Date(data[0].date);
 
@@ -108,15 +92,40 @@ export default function Calendar() {
         let curr = sortedDates[0];
         var sortedArrayWithStartOfWeek = [];
 
-        for (let i = 1, n = 7; i <= 7 && n >= 1; i++, n--) {
+        //остаток от деления на 7 -- кол-во i
+
+        let k = 1;
+        let n = 7;
+
+        while (k <= 7 && n >= 1) {
           let first;
+
           if (curr.getDay() == 0) {
-            first = curr.getDate() - n + i;
+            first = curr.getDate() - n + k;
           } else {
-            first = curr.getDate() - curr.getDay() + i;
+            first = curr.getDate() - curr.getDay() + k;
           }
+
           let day = new Date(curr.setDate(first));
+
           sortedArrayWithStartOfWeek = [...sortedArrayWithStartOfWeek, day];
+
+          console.log("curr.setDate(sortedDates[sortedDates.length - 1])");
+
+          console.log(new Date(curr.setDate(curr.getDate() - curr.getDay() + k)));
+          if (
+            k % 7 == 0 &&
+            curr.setDate(curr.getDate() - curr.getDay() + k) <
+              sortedDates[sortedDates.length - 2]
+          ) {
+            k += 7;
+            n = 7;
+            console.log(k);
+          }
+          //то увеличить i на остаток от деления на 7
+
+          k++;
+          n--;
         }
 
         // console.log(sortedArrayWithStartOfWeek)
@@ -186,7 +195,9 @@ export default function Calendar() {
     day: "numeric",
   };
 
-  var days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+  var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  
+
   return object1.length > 0 ? (
     <div className="stripe stripe5">
       <Header name={t("calendar.title")} />

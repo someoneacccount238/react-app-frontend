@@ -26,8 +26,8 @@ export default function SearchWithCalorieForm() {
     //   data1 = obj1.data;
     //   data2 = obj2.data;
     // } else {
-    data1 = obj3.data;
-    data2 = obj4.data;
+    data1 = obj1.data;
+    data2 = obj2.data;
   }
   validate();
   const [value, setValue] = useState("");

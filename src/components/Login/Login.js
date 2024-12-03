@@ -63,7 +63,7 @@ const Login = () => {
         <Button size="large" variant="contained" type="submit" fullWidth>
           {t("login.title")}
         </Button>
-        <a href="/register"> {t("login.question")}</a>
+        <a href="/register" className="question"> {t("login.question")}</a>
       </form>
     </Paper>
   );
